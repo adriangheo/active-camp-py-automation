@@ -12,7 +12,7 @@ from google.oauth2 import service_account
 
 # Python Selenium - code
 browser1 = webdriver.Chrome()
-browser1.get('https://tstprep.activehosted.com/app/automations')
+browser1.get('https://tstprep.activehosted.com/app/automations?limit=200')
 
 element_usr = WebDriverWait(browser1, 5).until(
     EC.presence_of_element_located((By.CSS_SELECTOR, "input#user"))
@@ -31,32 +31,54 @@ element_pas = WebDriverWait(browser1, 5).until(
 element_pas.click()
 
 
+list_of_automations  = WebDriverWait(browser1, 5).until(
+    EC.presence_of_all_elements_located((By.CSS_SELECTOR, '.automations_index_automation-list_list-row .automation_title > a'))
+)
 
 
 
-# Python GoogleSheetsAPI - code
-SERVICE_ACCOUNT_FILE = 'keys.json'
-SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-
-my_credentials = None
-my_credentials = service_account.Credentials.from_service_account_file(
-        SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 
 
-# The ID spreadsheet.
-SAMPLE_SPREADSHEET_ID = '1dAFFThOXIuM-YKtKMEzSgHaD0HPpFLsUamiMZhlrOOk'
+# for elmnt in list_of_automations :  
+#     print(elmnt.get_attribute("href"))
+#     print(elmnt.text)
+    
+for count, element in list_of_automations:
+    if count == 1:
+        print(element)
 
 
-service = build('sheets', 'v4', credentials=my_credentials)
+mylist = ['a', 'b', 'c']
 
-# Call the Sheets API
-sheet = service.spreadsheets()
-result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                            range="Sheet1!A1:O2").execute()
+for elmnt, index in mylist:
+    print(element)
+    print(index)
 
-# #first run
-# print(result)
 
-values = result.get('values', [])
-print(values)
 
+# SERVICE_ACCOUNT_FILE = 'keys.json'
+# SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
+
+# my_credentials = None
+# my_credentials = service_account.Credentials.from_service_account_file(
+#         SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+
+# # The ID spreadsheet.
+# SAMPLE_SPREADSHEET_ID = '1dAFFThOXIuM-YKtKMEzSgHaD0HPpFLsUamiMZhlrOOk'
+
+# service = build('sheets', 'v4', credentials=my_credentials)
+
+# data = [["8/1/2020","Joe3","MidWest","IL","New Brand",563.65,342.45]]
+
+# # Call the Sheets API
+# request = service.spreadsheets().values().append(
+#         spreadsheetId=SAMPLE_SPREADSHEET_ID, 
+#         range="AC-Automations-List!!A1:G1", # where to start from in searching for the first empty row
+#         valueInputOption="USER_ENTERED", #how the input data should be interepreted. Either a)RAW (will not be parsed) or b)USER_ENTERED (ie. strings may be converted to nubmers, dates, etc)
+#         insertDataOption="INSERT_ROWS", #how the input data should be inserted. Either a) OVERWRITE or b)INSERT_ROWS
+#         body={"values":data} #
+# ).execute()
+
+# print(request)
+
+browser1.exit()
