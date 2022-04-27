@@ -458,3 +458,16 @@ DevTools listening on ws://localhost:39815/devtools/browser/e58b0735-5e02-47af-a
 Read port: 42503
 1651070432949	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 JavaScript error: https://d226aj4ao1t61q.cloudfront.net/s98pqxx40_script.js, line 625: ReferenceError: zE is not defined
+1651070562387	geckodriver	INFO	Listening on 127.0.0.1:40185
+1651070562435	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "52731" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileka7XNm"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1651070564127	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileka7XNm/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:52731/devtools/browser/39a41616-7dbe-4308-a4ec-06b67cb8e33f
+1651070565519	Marionette	INFO	Listening on port 36683
+Read port: 36683
+1651070565551	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://d226aj4ao1t61q.cloudfront.net/s98pqxx40_script.js, line 625: ReferenceError: zE is not defined

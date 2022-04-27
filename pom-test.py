@@ -18,7 +18,7 @@ automations_page.go()
 #     print(elmnt.get_attribute("href"))
 #     print(elmnt.text)
 print("line20")
-print(type(automations_page.list_of_automations))
+print(type(automations_page.list_of_automations.web_elements))
 print("line22")
 
 # for elmnt in automations_page.list_of_divs:  

@@ -6,7 +6,7 @@ class BaseElements(object):
     def __init__(self, driver, locator):
        self.driver = driver
        self.locator =  locator
-       self.web_element = []
+       self.web_elements = []
        self.find()
 
     def find(self):
@@ -17,7 +17,7 @@ class BaseElements(object):
         # self.web_element.append('aaa')
         # self.web_element.append('bbb')
         print("base elm start")
-        print(type(self.web_element))
+        print(type(self.web_elements))
         print("base elm end")
 
         return None
