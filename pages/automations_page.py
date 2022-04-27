@@ -4,8 +4,8 @@ from .base_element import BaseElement
 from .base_page import BasePage
 from .locator import Locator
 
-class LoginPage(BasePage):
-    url = 'https://tstprep.activehosted.com/admin/index.php'
+class AutomationsPage(BasePage):
+    url = 'https://tstprep.activehosted.com/app/automations?limit=100'
 
     @property
     # def courses_for_duolingo(self):

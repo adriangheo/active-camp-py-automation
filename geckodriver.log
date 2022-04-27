@@ -64,3 +64,5 @@ JavaScript error: https://d226aj4ao1t61q.cloudfront.net/s98pqxx40_script.js, lin
 console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://tstprep.activehosted.com"
 console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://tstprep.activehosted.com"
 JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+JavaScript error: https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js, line 3368: TypeError: destination is undefined
+JavaScript error: https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js, line 3368: TypeError: destination is undefined
