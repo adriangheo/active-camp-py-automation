@@ -1,11 +1,12 @@
 from selenium.webdriver.common.by import By
 
 from .base_element import BaseElement
+from .base_elements import BaseElements
 from .base_page import BasePage
 from .locator import Locator
 
 class AutomationsPage(BasePage):
-    url = 'https://tstprep.activehosted.com/app/automations?limit=100'
+    url = 'https://tstprep.activehosted.com'
 
     @property
     # def courses_for_duolingo(self):
@@ -25,6 +26,18 @@ class AutomationsPage(BasePage):
         lctr = Locator(By.CSS_SELECTOR, "input[value='Login']")
         return BaseElement(driver = self.driver, locator=lctr)
 
+    @property
+    def list_of_automations(self):
+        lctr = Locator(By.CSS_SELECTOR, ".inner.flex.flex-column.p-4")
+        return BaseElements(driver = self.driver, locator=lctr)
+
+
+
+
+    @property
+    def list_of_divs(self):
+        lctr = Locator(By.CSS_SELECTOR, ".inner.flex.flex-column.p-4")
+        return BaseElements(driver = self.driver, locator=lctr)
 
 
 
