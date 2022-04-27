@@ -21,6 +21,10 @@ print("line20")
 print(type(automations_page.list_of_automations.web_elements))
 print("line22")
 
+for elmnt in automations_page.list_of_automations.web_elements:  
+    print(elmnt)
+
+
 # for elmnt in automations_page.list_of_divs:  
 #     print(elmnt.get_attribute("href"))
 #     print(elmnt.text)

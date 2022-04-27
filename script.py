@@ -13,7 +13,9 @@ from google.oauth2 import service_account
 # Python Selenium - code
 browser1 = webdriver.Chrome()
 
-browser1.get('https://tstprep.activehosted.com/app/automations?limit=100&offset=100&page=2')
+# browser1.get('https://tstprep.activehosted.com/app/automations?limit=100&offset=100&page=2')
+browser1.get('https://tstprep.activehosted.com')
+
 
 element_usr = WebDriverWait(browser1, 5).until(
     EC.presence_of_element_located((By.CSS_SELECTOR, "input#user"))
