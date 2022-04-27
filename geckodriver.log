@@ -1,0 +1,66 @@
+1651066906024	geckodriver	INFO	Listening on 127.0.0.1:54833
+1651066906642	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "52469" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilenf6GlJ"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1651066908379	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilenf6GlJ/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:52469/devtools/browser/8d926278-56f6-4d64-b7c9-a0c99cfac8f7
+1651066910094	Marionette	INFO	Listening on port 44587
+Read port: 44587
+1651066910163	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://d226aj4ao1t61q.cloudfront.net/s98pqxx40_script.js, line 625: ReferenceError: zE is not defined
+1651066959146	Marionette	INFO	Stopped listening on port 44587
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1651066963233	geckodriver	INFO	Listening on 127.0.0.1:57353
+1651066963276	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "44085" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilebgDxGx"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1651066963747	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilebgDxGx/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:44085/devtools/browser/978f3b53-60a1-48fb-ab9d-d8cffddce5e9
+1651066965162	Marionette	INFO	Listening on port 43407
+Read port: 43407
+1651066965196	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://d226aj4ao1t61q.cloudfront.net/s98pqxx40_script.js, line 625: ReferenceError: zE is not defined
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://tstprep.activehosted.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://tstprep.activehosted.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+JavaScript error: https://d226aj4ao1t61q.cloudfront.net/s98pqxx40_script.js, line 625: ReferenceError: zE is not defined
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://tstprep.activehosted.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://tstprep.activehosted.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+JavaScript error: https://d226aj4ao1t61q.cloudfront.net/s98pqxx40_script.js, line 625: ReferenceError: zE is not defined
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://tstprep.activehosted.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://tstprep.activehosted.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+1651067249845	Marionette	INFO	Stopped listening on port 43407
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1651067458665	geckodriver	INFO	Listening on 127.0.0.1:51041
+1651067458707	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "33411" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileGAAVlr"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1651067460433	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileGAAVlr/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:33411/devtools/browser/51ba0ab0-33b5-48d2-9af5-9765f2bb27e9
+1651067462028	Marionette	INFO	Listening on port 35325
+Read port: 35325
+1651067462129	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://d226aj4ao1t61q.cloudfront.net/s98pqxx40_script.js, line 625: ReferenceError: zE is not defined
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://tstprep.activehosted.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://tstprep.activehosted.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null

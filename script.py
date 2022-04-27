@@ -26,6 +26,8 @@ element_pas = WebDriverWait(browser1, 5).until(
 )
 element_pas.send_keys('Z8kkh31SEVHm')
 
+
+
 element_pas = WebDriverWait(browser1, 5).until(
     EC.presence_of_element_located((By.CSS_SELECTOR, "input[value='Login']"))
 )
