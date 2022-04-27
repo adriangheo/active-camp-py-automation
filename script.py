@@ -12,7 +12,8 @@ from google.oauth2 import service_account
 
 # Python Selenium - code
 browser1 = webdriver.Chrome()
-browser1.get('https://tstprep.activehosted.com/app/automations?limit=200')
+
+browser1.get('https://tstprep.activehosted.com/app/automations?limit=100&offset=100&page=2')
 
 element_usr = WebDriverWait(browser1, 5).until(
     EC.presence_of_element_located((By.CSS_SELECTOR, "input#user"))
@@ -36,49 +37,49 @@ list_of_automations  = WebDriverWait(browser1, 5).until(
 )
 
 
+for elmnt in list_of_automations :  
+    print(elmnt.get_attribute("href"))
+    print(elmnt.text)
+
+# first_link = list_of_automations[0].get_attribute("href")
+
+
+# element_to_be_removed = browser2.find_element_by_class_name('classname')
+# driver.execute_script("""
+# var element = arguments[0];
+# element.parentNode.removeChild(element);
+# """, element)
+
+
+# 
+# 
+# new tabs
+# 
+# 
+
+
+# # the code bellow opens the link in the new tabs
+# browser1.execute_script('window.open("' + first_link + '", "_blank");')
+
+# handles = browser1.window_handles
+
+# #TABS switch
+# # keep note that if you open more than 2 tabs, these window handles 
+# # are not going to be in the same order that we called them in, 
+# browser1.switch_to.window(handles[1])
+
+# # browser1.execute_script('window.open("https://techstepacademy.com/training-ground", "_blank");')
+# # browser1.execute_script('window.open("http://google.com", "_blank");')
+# # browser1.execute_script('window.open("http://yahoo.com", "_blank");')
+# # browser1.execute_script('window.open("http://google.com", "_blank");')
+
+# viewemails_btn = WebDriverWait(browser1, 5).until(     EC.presence_of_element_located((By.CSS_SELECTOR, ".viewemails .ac_button")) )
+# viewemails_btn.click()
+
+
+# browser1.find_element(By.CSS_SELECTOR, ".viewemails .ac_button")  
 
 
 
-# for elmnt in list_of_automations :  
-#     print(elmnt.get_attribute("href"))
-#     print(elmnt.text)
-    
-for count, element in list_of_automations:
-    if count == 1:
-        print(element)
-
-
-mylist = ['a', 'b', 'c']
-
-for elmnt, index in mylist:
-    print(element)
-    print(index)
-
-
-
-# SERVICE_ACCOUNT_FILE = 'keys.json'
-# SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-
-# my_credentials = None
-# my_credentials = service_account.Credentials.from_service_account_file(
-#         SERVICE_ACCOUNT_FILE, scopes=SCOPES)
-
-# # The ID spreadsheet.
-# SAMPLE_SPREADSHEET_ID = '1dAFFThOXIuM-YKtKMEzSgHaD0HPpFLsUamiMZhlrOOk'
-
-# service = build('sheets', 'v4', credentials=my_credentials)
-
-# data = [["8/1/2020","Joe3","MidWest","IL","New Brand",563.65,342.45]]
-
-# # Call the Sheets API
-# request = service.spreadsheets().values().append(
-#         spreadsheetId=SAMPLE_SPREADSHEET_ID, 
-#         range="AC-Automations-List!!A1:G1", # where to start from in searching for the first empty row
-#         valueInputOption="USER_ENTERED", #how the input data should be interepreted. Either a)RAW (will not be parsed) or b)USER_ENTERED (ie. strings may be converted to nubmers, dates, etc)
-#         insertDataOption="INSERT_ROWS", #how the input data should be inserted. Either a) OVERWRITE or b)INSERT_ROWS
-#         body={"values":data} #
-# ).execute()
-
-# print(request)
-
-browser1.exit()
+# viewemails_btn1 = WebDriverWait(browser1, 2).until(        EC.presence_of_element_located((By.CSS_SELECTOR, ".viewemails .ac_button")) )
+# viewemails_btn.execute_script("arguments[0].click();",product)
