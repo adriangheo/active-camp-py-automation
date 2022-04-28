@@ -3,9 +3,12 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class BaseElement(object):
-    def __init__(self, driver, locator):
+    def __init__(self, driver, value, by):
        self.driver = driver
-       self.locator =  locator
+       self.value = value
+       self.by = by
+       self.locator = (self.by, self.value)
+
        self.web_element = None
        self.find()
 
@@ -13,7 +16,7 @@ class BaseElement(object):
         # self.driver.find_element(by=self.by, value=self.locator)
         element1 = WebDriverWait(
             self.driver,10).until(
-                EC.element_to_be_clickable(self.locator))
+                EC.visibility_of_element_located(self.locator))
         self.web_element = element1
         return None
 
@@ -22,11 +25,10 @@ class BaseElement(object):
         return None
 
     def click(self):
-        WebDriverWait(
+        element2 = WebDriverWait(
             self.driver,10).until(
                 EC.element_to_be_clickable(self.locator))
-        self.driver.execute_script("arguments[0].click();",self.web_element )
-
+        element2.click()
         return None
 
     def attribute(self, attr_name):
