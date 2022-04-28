@@ -47,43 +47,31 @@ for elmnt in list_of_automations :
 
 # first_link = list_of_automations[0].get_attribute("href")
 
-
-# element_to_be_removed = browser2.find_element_by_class_name('classname')
-# driver.execute_script("""
-# var element = arguments[0];
-# element.parentNode.removeChild(element);
-# """, element)
-
-
 # 
-# 
-# new tabs
 # 
 # 
 
+SERVICE_ACCOUNT_FILE = 'keys.json'
+SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
-# # the code bellow opens the link in the new tabs
-# browser1.execute_script('window.open("' + first_link + '", "_blank");')
+my_credentials = None
+my_credentials = service_account.Credentials.from_service_account_file(
+        SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 
-# handles = browser1.window_handles
+# The ID spreadsheet.
+SAMPLE_SPREADSHEET_ID = '1dAFFThOXIuM-YKtKMEzSgHaD0HPpFLsUamiMZhlrOOk'
 
-# #TABS switch
-# # keep note that if you open more than 2 tabs, these window handles 
-# # are not going to be in the same order that we called them in, 
-# browser1.switch_to.window(handles[1])
+service = build('sheets', 'v4', credentials=my_credentials)
 
-# # browser1.execute_script('window.open("https://techstepacademy.com/training-ground", "_blank");')
-# # browser1.execute_script('window.open("http://google.com", "_blank");')
-# # browser1.execute_script('window.open("http://yahoo.com", "_blank");')
-# # browser1.execute_script('window.open("http://google.com", "_blank");')
+data = [["8/1/2020","Joe3","MidWest","IL","New Brand",563.65,342.45]]
 
-# viewemails_btn = WebDriverWait(browser1, 5).until(     EC.presence_of_element_located((By.CSS_SELECTOR, ".viewemails .ac_button")) )
-# viewemails_btn.click()
+# Call the Sheets API
+request = service.spreadsheets().values().append(
+        spreadsheetId=SAMPLE_SPREADSHEET_ID, 
+        range="AC-Automations-List!A1:G1", # where to start from in searching for the first empty row
+        valueInputOption="USER_ENTERED", #how the input data should be interepreted. Either a)RAW (will not be parsed) or b)USER_ENTERED (ie. strings may be converted to nubmers, dates, etc)
+        insertDataOption="INSERT_ROWS", #how the input data should be inserted. Either a) OVERWRITE or b)INSERT_ROWS
+        body={"values":data} #
+).execute()
 
-
-# browser1.find_element(By.CSS_SELECTOR, ".viewemails .ac_button")  
-
-
-
-# viewemails_btn1 = WebDriverWait(browser1, 2).until(        EC.presence_of_element_located((By.CSS_SELECTOR, ".viewemails .ac_button")) )
-# viewemails_btn.execute_script("arguments[0].click();",product)
+print(request)
