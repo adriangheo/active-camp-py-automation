@@ -14,7 +14,7 @@ from google.oauth2 import service_account
 browser1 = webdriver.Chrome()
 
 # browser1.get('https://tstprep.activehosted.com/app/automations?limit=100&offset=100&page=2')
-browser1.get('https://tstprep.activehosted.com')
+browser1.get('https://tstprep.activehosted.com/app/automations?limit=100')
 
 
 element_usr = WebDriverWait(browser1, 5).until(
