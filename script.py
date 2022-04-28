@@ -36,16 +36,20 @@ element_pas = WebDriverWait(browser1, 5).until(
 element_pas.click()
 
 
-list_of_automations  = WebDriverWait(browser1, 5).until(
+automations  = WebDriverWait(browser1, 5).until(
     EC.presence_of_all_elements_located((By.CSS_SELECTOR, '.automations_index_automation-list_list-row .automation_title > a'))
 )
 
+list_of_automations_data = []
 
-for elmnt in list_of_automations :  
-    print(elmnt.get_attribute("href"))
-    print(elmnt.text)
+for elmnt in automations :  
+    automation_data = []
+    automation_data.append(elmnt.get_attribute("href"))
+    automation_data.append(elmnt.text)
+    list_of_automations_data.append(automation_data)
 
-# first_link = list_of_automations[0].get_attribute("href")
+
+
 
 # 
 # 
@@ -63,15 +67,23 @@ SAMPLE_SPREADSHEET_ID = '1dAFFThOXIuM-YKtKMEzSgHaD0HPpFLsUamiMZhlrOOk'
 
 service = build('sheets', 'v4', credentials=my_credentials)
 
-data = [["8/1/2020","Joe3","MidWest","IL","New Brand",563.65,342.45]]
-
 # Call the Sheets API
 request = service.spreadsheets().values().append(
         spreadsheetId=SAMPLE_SPREADSHEET_ID, 
-        range="AC-Automations-List!A1:G1", # where to start from in searching for the first empty row
+        range="AC-Automations-List!A2", # where to start from in searching for the first empty row
         valueInputOption="USER_ENTERED", #how the input data should be interepreted. Either a)RAW (will not be parsed) or b)USER_ENTERED (ie. strings may be converted to nubmers, dates, etc)
         insertDataOption="INSERT_ROWS", #how the input data should be inserted. Either a) OVERWRITE or b)INSERT_ROWS
         body={"values":data} #
 ).execute()
 
 print(request)
+
+
+
+request = service.spreadsheets().values().append(
+        spreadsheetId=SAMPLE_SPREADSHEET_ID, 
+        range="AC-Automations-List!A2", # where to start from in searching for the first empty row
+        valueInputOption="USER_ENTERED", #how the input data should be interepreted. Either a)RAW (will not be parsed) or b)USER_ENTERED (ie. strings may be converted to nubmers, dates, etc)
+        insertDataOption="INSERT_ROWS", #how the input data should be inserted. Either a) OVERWRITE or b)INSERT_ROWS
+        body={"values":list_of_automations_data} #
+).execute()
