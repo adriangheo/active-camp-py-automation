@@ -36,5 +36,18 @@ class GoogleApi:
 
 
 
+    @property
+    def target_cells(self):
+        href_cells_list = []
+        target_columns = ['D', 'E', 'F', 'G', 'H', 'I']
+        target_lines = [*range(2, 1301, 1)]
 
+        for line_idx, line_elmnt in enumerate(target_lines):
+                intermediary_list = []
+                href_cells_list.append(intermediary_list)
+                for col_idx, col_elmnt in enumerate(target_columns):
+                        # print(str(target_lines[line_idx]) + target_columns[col_idx])
+                        intermediary_list.append( target_columns[col_idx] + str(target_lines[line_idx]) )
+        
+        return href_cells_list
 

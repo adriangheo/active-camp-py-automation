@@ -11,7 +11,7 @@ from google.oauth2 import service_account
 from pages.automations_page import AutomationsPage
 from apis.google_api import GoogleApi
 
-
+google_api = GoogleApi()
 
 # SERVICE_ACCOUNT_FILE = 'keys.json'
 # SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
@@ -46,31 +46,14 @@ from apis.google_api import GoogleApi
 
 
     # [
-    #     [
-    #         ["D1"],["E1"],["F1"],["G1"],["H1"],["I1"]
-    #     ]
-    #     [
-    #         ["D2"],["E2"],["F2"],["G2"],["H2"],["I2"]
-    #     ]
+    #     [ 'D1','E1','F1','G1','H1','I1' ], 
+    #     [ 'D2','E2','F2','G2','H2','I2' ],
     #     ...
-    #     [
-    #         ["D1300"],["E1300"],["F1300"],["G1300"],["H1300"],["I1300"]
-    #     ]
+    #     [ 'D1300','E1300','F1300','G1300','H1300','I1300']
     # ]
 
 
-href_cells_list = []
-target_columns = ['D', 'E', 'F', 'G', 'H', 'I']
-target_lines = [*range(2, 1301, 1)]
-
-for line_idx, line_elmnt in enumerate(target_lines):
-    intermediary_list = []
-    href_cells_list.append(intermediary_list)
-    for col_idx, col_elmnt in enumerate(target_columns):
-        # print(str(target_lines[line_idx]) + target_columns[col_idx])
-        intermediary_list.append( target_columns[col_idx] + str(target_lines[line_idx]) )
-
-print(href_cells_list)
+print(google_api.target_cells)
 
 
 # for line_idx, line_elmnt in enumerate(target_lines):
