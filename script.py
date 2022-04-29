@@ -43,10 +43,10 @@ from apis.google_api import GoogleApi
 # print(values)
 
 
-with open("list-of-links.txt") as f:
-    firstline = f.readlines()[1]
-    if "overview" in firstline:
-            print("we've found overview")
-    else:
-        print("we have NOT found overview")
-             
+
+file1 = open('list-of-links.txt', 'r')
+
+Lines = file1.readlines()
+
+for line in Lines:
+    print(line)
