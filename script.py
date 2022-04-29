@@ -43,6 +43,10 @@ for elmnt in automations :
     list_of_automations_data.append(automation_data)
 
 
+# xpath
+#  $x('//ul[@class="pager-wrap"]/li[@class="active"]/following-sibling::li[1]')
+#  $x('//ul[@class="pager-wrap"]/li[@class="active"]/following-sibling::li[1] [not(@class="next")]')
+
 
 
 
