@@ -13,35 +13,35 @@ from apis.google_api import GoogleApi
 
 
 
-# SERVICE_ACCOUNT_FILE = 'keys.json'
-# SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
+SERVICE_ACCOUNT_FILE = 'keys.json'
+SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
-# my_credentials = None
-# my_credentials = service_account.Credentials.from_service_account_file(
-#         SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+my_credentials = None
+my_credentials = service_account.Credentials.from_service_account_file(
+        SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 
-# # The ID spreadsheet.
-# SAMPLE_SPREADSHEET_ID = '1JaWqBcd6jGMV_2eOBq_rAcbXLFKhKHBkcOAuzNjIxbc'
+# The ID spreadsheet.
+SAMPLE_SPREADSHEET_ID = '1JaWqBcd6jGMV_2eOBq_rAcbXLFKhKHBkcOAuzNjIxbc'
 
-# service = build('sheets', 'v4', credentials=my_credentials)
-
-
-# # Call the Sheets API
-# sheet = service.spreadsheets()
-# result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-#                             range="Sheet1!D1:G16").execute()
-
-# # #first run
-# # print(result)
-
-# values = result.get('values', [])
-# print(values)
+service = build('sheets', 'v4', credentials=my_credentials)
 
 
+# Call the Sheets API
+sheet = service.spreadsheets()
+result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+                            range="WorkSheet!D2").execute()
 
-target_columns = ['D', 'E', 'F', 'G', 'H', 'I']
-target_lines = [*range(2, 1301, 1)]
+# #first run
+# print(result)
 
-for line_idx, line_elmnt in enumerate(target_lines):
-    for col_idx, col_elmnt in enumerate(target_columns):
-        print(str(target_lines[line_idx]) + target_columns[col_idx])
+values = result.get('values', [])
+print(values)
+
+
+
+# target_columns = ['D', 'E', 'F', 'G', 'H', 'I']
+# target_lines = [*range(2, 1301, 1)]
+
+# for line_idx, line_elmnt in enumerate(target_lines):
+#     for col_idx, col_elmnt in enumerate(target_columns):
+#         print(str(target_lines[line_idx]) + target_columns[col_idx])
