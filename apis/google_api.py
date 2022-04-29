@@ -35,7 +35,13 @@ class GoogleApi:
         return None
 
 
-
+    # The method bellow generates the following list with sublists
+    # [
+    #     [ 'D1','E1','F1','G1','H1','I1' ], 
+    #     [ 'D2','E2','F2','G2','H2','I2' ],
+    #     ...
+    #     [ 'D1300','E1300','F1300','G1300','H1300','I1300']
+    # ]
     @property
     def target_cells(self):
         href_cells_list = []
