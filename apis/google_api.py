@@ -36,6 +36,7 @@ class GoogleApi:
 
 
     # The method bellow generates the following list with sublists
+    # ... and each value represents the text in one cell from the spreadsheet    
     # [
     #     [ 'D1','E1','F1','G1','H1','I1' ], 
     #     [ 'D2','E2','F2','G2','H2','I2' ],
