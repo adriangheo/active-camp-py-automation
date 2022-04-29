@@ -11,45 +11,42 @@ from google.oauth2 import service_account
 from pages.automations_page import AutomationsPage
 from apis.google_api import GoogleApi
 
-google_api = GoogleApi()
+# google_api = GoogleApi()
 
-SERVICE_ACCOUNT_FILE = 'keys.json'
-SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
+# SERVICE_ACCOUNT_FILE = 'keys.json'
+# SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
-my_credentials = None
-my_credentials = service_account.Credentials.from_service_account_file(
-        SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+# my_credentials = None
+# my_credentials = service_account.Credentials.from_service_account_file(
+#         SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 
-# The ID spreadsheet.
-SAMPLE_SPREADSHEET_ID = '1JaWqBcd6jGMV_2eOBq_rAcbXLFKhKHBkcOAuzNjIxbc'
+# # The ID spreadsheet.
+# SAMPLE_SPREADSHEET_ID = '1JaWqBcd6jGMV_2eOBq_rAcbXLFKhKHBkcOAuzNjIxbc'
 
-service = build('sheets', 'v4', credentials=my_credentials)
+# service = build('sheets', 'v4', credentials=my_credentials)
 
+# # Call the Sheets API
+# sheet = service.spreadsheets()
+# result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+#                             range="WorkSheet!D1:I1300").execute()
 
-# Call the Sheets API
-sheet = service.spreadsheets()
+# # #first run
+# # print(result)
 
+# values = result.get('values', [])
 
-for line_idx, line_elmnt in enumerate(target_lines):
-    for col_idx, col_elmnt in enumerate(target_columns):
-        target_cell = target_columns[col_idx] + str(target_lines[line_idx])
-
-        
-        
-        
-        print(values)
-    print("---")
-
+# f = open("demofile2.txt", "a")
+# f.write(str(values))
+# f.close()
 
 
-print(google_api.target_cells)
-
-for sublist in google_api.target_cells:
-    for cell in sublist:
-        result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                            range="WorkSheet!" + cell).execute()
-        values = result.get('values', [])
-        print(values)
-    print('---')
+# print(values)
 
 
+with open("list-of-links.txt") as f:
+    firstline = f.readlines()[1]
+    if "overview" in firstline:
+            print("we've found overview")
+    else:
+        print("we have NOT found overview")
+             
