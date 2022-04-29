@@ -46,7 +46,19 @@ from apis.google_api import GoogleApi
 
 file1 = open('list-of-links.txt', 'r')
 
-Lines = file1.readlines()
+lines = file1.readlines()
 
-for line in Lines:
-    print(line)
+for line in lines:
+    if "overview" in line:
+        print("--------------")
+        print("found overview")
+    elif "opens" in line:
+        print("found opens")
+    elif "clicks" in line:
+        print("found clicks")
+    elif "preview" in line:
+        print("found preview")
+    elif "designer" in line:
+        print("found designer")
+    elif "summary" in line:
+        print("found summary")
