@@ -11,47 +11,37 @@ from google.oauth2 import service_account
 from pages.automations_page import AutomationsPage
 from apis.google_api import GoogleApi
 
-from pages.login_page import LoginPage
-
-google_api = GoogleApi()
-
-# Python Selenium - code
-browser1 = webdriver.Chrome()
-
-login_page = LoginPage(driver=browser1)
-
-# browser1.get('https://tstprep.activehosted.com/app/automations?limit=100&offset=100&page=2')
-login_page.go()
-
-login_page.username_field.input_text('josh@tstprep.com')
-login_page.password_field.input_text('Z8kkh31SEVHm')
-login_page.login_btn.click()
 
 
-browser1.get('https://tstprep.activehosted.com/app/automations?limit=100')
+# SERVICE_ACCOUNT_FILE = 'keys.json'
+# SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
-automations  = WebDriverWait(browser1, 5).until(
-    EC.presence_of_all_elements_located((By.CSS_SELECTOR, '.automations_index_automation-list_list-row .automation_title > a'))
-)
+# my_credentials = None
+# my_credentials = service_account.Credentials.from_service_account_file(
+#         SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 
-list_of_automations_data = []
+# # The ID spreadsheet.
+# SAMPLE_SPREADSHEET_ID = '1JaWqBcd6jGMV_2eOBq_rAcbXLFKhKHBkcOAuzNjIxbc'
 
-for elmnt in automations :  
-    automation_data = []
-    automation_data.append(elmnt.get_attribute("href"))
-    automation_data.append(elmnt.text)
-    list_of_automations_data.append(automation_data)
+# service = build('sheets', 'v4', credentials=my_credentials)
 
 
-# xpath
-#  $x('//ul[@class="pager-wrap"]/li[@class="active"]/following-sibling::li[1]')
-#  $x('//ul[@class="pager-wrap"]/li[@class="active"]/following-sibling::li[1] [not(@class="next")]')
+# # Call the Sheets API
+# sheet = service.spreadsheets()
+# result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+#                             range="Sheet1!D1:G16").execute()
+
+# # #first run
+# # print(result)
+
+# values = result.get('values', [])
+# print(values)
 
 
 
+target_columns = ['D', 'E', 'F', 'G', 'H', 'I']
+target_lines = [*range(2, 1301, 1)]
 
-
-
-# google_api.appendToActCampAutomationsSheet(list_of_automations_data)
-
-
+for line_idx, line_elmnt in enumerate(target_lines):
+    for col_idx, col_elmnt in enumerate(target_columns):
+        print(str(target_lines[line_idx]) + target_columns[col_idx])
