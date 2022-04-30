@@ -124,14 +124,33 @@ open_read_automations = WebDriverWait(browser, 5).until(
 open_read_automations.click()
 
 O_R_Automations_text = WebDriverWait(browser, 5).until(
-    EC.visibility_of_element_located((By.XPATH, '.modal-dialog tbody'))
+    EC.visibility_of_element_located((By.CSS_SELECTOR, '.text_left.ac_fs-shmedium'))
+).text
+
+
+
+popup_close_btn = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.XPATH, '//*[contains(text(),"When this message is opened")]/preceding-sibling::a[1]'))
 )
+popup_close_btn.click()
+
+
 
 
 
 
 link_tracking_switch = WebDriverWait(browser, 5).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="link_tracking"]'))
+)
+if 'switch_on' in link_tracking_switch.get_attribute('class').split():
+    print('switch is on')
+else:
+    print('switch is off')
+
+
+
+link_tracking_switch = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="reply_tracking"]'))
 )
 
 if 'switch_on' in link_tracking_switch.get_attribute('class').split():
@@ -140,10 +159,13 @@ else:
     print('switch is off')
 
 
+
+
+
+
 google_analytics_switch = WebDriverWait(browser, 5).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="analytics"]'))
 )
-
 if 'switch_on' in google_analytics_switch.get_attribute('class').split():
     print('switch is on')
 else:
