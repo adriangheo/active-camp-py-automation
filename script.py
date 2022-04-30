@@ -118,6 +118,17 @@ else:
     print('switch is off')
 
 
+open_read_automations = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.CSS_SELECTOR, '.open-read-automations'))
+)
+open_read_automations.click()
+
+O_R_Automations_text = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.XPATH, '.modal-dialog tbody'))
+)
+
+
+
 
 link_tracking_switch = WebDriverWait(browser, 5).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="link_tracking"]'))
