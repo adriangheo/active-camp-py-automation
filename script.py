@@ -32,12 +32,6 @@ browser.get('https://thethirdwave.activehosted.com/report/#/campaign/1153/overvi
 
 target_values_list = []
 
-total_sent = WebDriverWait(browser, 5).until(
-    EC.visibility_of_element_located((By.CSS_SELECTOR, 'span.sentto'))
-).text
-target_values_list.append(total_sent)
-
-
 def ac_camp_nr():
     str_url = browser.current_url
     start = str_url.find("campaign/") + len("campaign/")
@@ -47,6 +41,7 @@ def ac_camp_nr():
 
 camp_nr = ac_camp_nr()
 
+overview_link = "https://thethirdwave.activehosted.com/report/#/campaign/"+ camp_nr +"/overview"
 opens_link = "https://thethirdwave.activehosted.com/report/#/campaign/"+ camp_nr +"/opens"
 clicks_link = "https://thethirdwave.activehosted.com/report/#/campaign/"+ camp_nr +"/clicks"
 preview_link = "https://thethirdwave.activehosted.com/preview.php?c="+ camp_nr + "&preview"
@@ -64,6 +59,8 @@ btn_temp_settings.click()
 subject_text =  WebDriverWait(browser, 5).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[name="subject"]'))
 ).get_attribute('value')
+target_values_list.append(subject_text)
+
 print("subject_text: " + subject_text)
 
 
@@ -72,18 +69,21 @@ preheader_text = WebDriverWait(browser, 5).until(
 ).get_attribute('value')
 if(preheader_text == ""):
     preheader_text = "n/a"
+target_values_list.append(preheader_text)
 print("preheader_text: " + preheader_text)
 
 
 sender_name = WebDriverWait(browser, 5).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[name="fromname_display"]'))
 ).get_attribute('value')
+target_values_list.append(sender_name)
 print("sender_text: " + sender_name)
 
 
 sender_email = WebDriverWait(browser, 5).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[name="fromemail_display"]'))
 ).get_attribute('value')
+target_values_list.append(sender_email)
 print("sender_email: " + sender_email)
 
 
@@ -92,7 +92,7 @@ reply_email = WebDriverWait(browser, 5).until(
 ).get_attribute('value')
 if(reply_email == ""):
     reply_email = "n/a"
-
+target_values_list.append(reply_email)
 print("reply_email: " + reply_email)
 
 popup_close_btn = WebDriverWait(browser, 5).until(
@@ -106,15 +106,15 @@ next_btn = WebDriverWait(browser, 5).until(
 next_btn.click()
 
 
-
-
+# swith-01
 read_tracking_switch = WebDriverWait(browser, 5).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="read_tracking"]'))
 )
-
 if 'switch_on' in read_tracking_switch.get_attribute('class').split():
     print('switch is on')
+    target_values_list.append("ON")
 else:
+    target_values_list.append("OFF")
     print('switch is off')
 
 
@@ -126,7 +126,8 @@ open_read_automations.click()
 O_R_Automations_text = WebDriverWait(browser, 5).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, '.text_left.ac_fs-shmedium'))
 ).text
-
+target_values_list.append(O_R_Automations_text)
+print("O_R_Automations_text: " + O_R_Automations_text)
 
 
 popup_close_btn = WebDriverWait(browser, 5).until(
@@ -138,38 +139,118 @@ popup_close_btn.click()
 
 
 
-
+# swith-02
 link_tracking_switch = WebDriverWait(browser, 5).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="link_tracking"]'))
 )
 if 'switch_on' in link_tracking_switch.get_attribute('class').split():
     print('switch is on')
+    target_values_list.append("ON")
 else:
+    target_values_list.append("OFF")
     print('switch is off')
 
 
 
+open_cstmize_lnk_traking = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.XPATH, "//div[@class='options-row link_tracking']/div[position()=3]/a"))
+)
+open_cstmize_lnk_traking.click()
+
+
+cstmize_lnk_traking_urls = WebDriverWait(browser, 5).until(
+    EC.presence_of_all_elements_located((By.CSS_SELECTOR, "tbody[id='tlinkshtmllist'] .text_left"))
+)
+# print("cstmize_lnk_traking_urls: " + cstmize_lnk_traking_urls)  # error can only concatenate strings to strings, not arrays
+texts = []
+for matched_element in cstmize_lnk_traking_urls:
+    text = matched_element.text
+    texts.append(text)
+
+target_values_list.append(texts)
+
+
+popup_close_btn = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.XPATH, '//*[contains(text(),"Customize Link Tracking")]/preceding-sibling::a[1]'))
+)
+popup_close_btn.click()
+
+
+
+
+# swith-03
 link_tracking_switch = WebDriverWait(browser, 5).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="reply_tracking"]'))
 )
 
 if 'switch_on' in link_tracking_switch.get_attribute('class').split():
     print('switch is on')
+    target_values_list.append("ON")
 else:
+    target_values_list.append("OFF")
     print('switch is off')
 
 
 
 
 
-
+# swith-04
 google_analytics_switch = WebDriverWait(browser, 5).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="analytics"]'))
 )
 if 'switch_on' in google_analytics_switch.get_attribute('class').split():
     print('switch is on')
+    target_values_list.append("ON")
 else:
+    target_values_list.append("OFF")
     print('switch is off')
+
+
+open_cstmize_lnk_traking = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.XPATH, "//div[@class='options-row analytics']/div[contains(@class,'options-link')]//a"))
+)
+open_cstmize_lnk_traking.click()
+
+analytics_campaign_name = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[name="analytics_campaign_name"]'))
+).get_attribute("value")
+target_values_list.append(analytics_campaign_name)
+print("analytics_campaign_name: " + analytics_campaign_name)
+
+# End of Campaign Summary
+# 
+
+
+# 
+# Start of Overview
+browser.get(overview_link)
+
+total_sent = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.CSS_SELECTOR, 'span.sentto'))
+).text
+target_values_list.append(total_sent)
+# End of Overview
+# 
+
+
+# 
+# Start of opens_link
+browser.get(opens_link)
+
+total_open_links = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.CSS_SELECTOR, '#open_total_t'))
+).text
+target_values_list.append(total_open_links)
+
+unique_open_links = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.CSS_SELECTOR, '#open_unique_t'))
+).text
+target_values_list.append(unique_open_links)
+
+
+# End of opens_link
+# 
+
 
 
 
