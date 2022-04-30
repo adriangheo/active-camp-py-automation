@@ -95,6 +95,48 @@ if(reply_email == ""):
 
 print("reply_email: " + reply_email)
 
+popup_close_btn = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.CSS_SELECTOR, 'div[id="template-setting"] a[class="close"]'))
+)
+popup_close_btn.click()
+
+next_btn = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.CSS_SELECTOR, '.ac_button.next.alt1.alt2'))
+)
+next_btn.click()
+
+
+
+
+read_tracking_switch = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="read_tracking"]'))
+)
+
+if 'switch_on' in read_tracking_switch.get_attribute('class').split():
+    print('switch is on')
+else:
+    print('switch is off')
+
+
+
+link_tracking_switch = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="link_tracking"]'))
+)
+
+if 'switch_on' in link_tracking_switch.get_attribute('class').split():
+    print('switch is on')
+else:
+    print('switch is off')
+
+
+google_analytics_switch = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="analytics"]'))
+)
+
+if 'switch_on' in google_analytics_switch.get_attribute('class').split():
+    print('switch is on')
+else:
+    print('switch is off')
 
 
 
