@@ -5,7 +5,7 @@ from .base_page import BasePage
 
 
 class LoginPage(BasePage):
-    url = 'https://tstprep.activehosted.com/app/automations?limit=100'
+    url = 'https://thethirdwave.activehosted.com/'
 
     @property
     # def courses_for_duolingo(self):

@@ -484,3 +484,204 @@ DevTools listening on ws://localhost:58939/devtools/browser/f056462e-0650-45cc-a
 Read port: 32887
 1651070687697	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 JavaScript error: https://d226aj4ao1t61q.cloudfront.net/s98pqxx40_script.js, line 625: ReferenceError: zE is not defined
+1651322956638	geckodriver	INFO	Listening on 127.0.0.1:36393
+1651322957257	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "42055" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileEzmPzj"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1651322958999	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileEzmPzj/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:42055/devtools/browser/6c62ef76-b046-4a81-81c5-a848acf52493
+1651322960645	Marionette	INFO	Listening on port 45139
+Read port: 45139
+1651322960677	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://d226aj4ao1t61q.cloudfront.net/s98pqxx40_script.js, line 625: ReferenceError: zE is not defined
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thethirdwave.activehosted.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thethirdwave.activehosted.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+1651323021199	Marionette	INFO	Stopped listening on port 45139
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1651323028151	geckodriver	INFO	Listening on 127.0.0.1:46113
+1651323028191	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "55215" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileNntiei"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1651323028655	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileNntiei/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:55215/devtools/browser/a4aeb903-5400-4e70-84a2-f986e671f04f
+1651323029963	Marionette	INFO	Listening on port 43035
+Read port: 43035
+1651323030006	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://d226aj4ao1t61q.cloudfront.net/s98pqxx40_script.js, line 625: ReferenceError: zE is not defined
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thethirdwave.activehosted.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thethirdwave.activehosted.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+1651323037747	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'loading'.
+1651323051082	Marionette	INFO	Stopped listening on port 43035
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1651323055413	geckodriver	INFO	Listening on 127.0.0.1:32893
+1651323055455	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "50441" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileYZb2N6"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1651323055914	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileYZb2N6/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:50441/devtools/browser/1e6229cc-7da4-4065-8424-463004713e57
+1651323057380	Marionette	INFO	Listening on port 43787
+Read port: 43787
+1651323057469	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://d226aj4ao1t61q.cloudfront.net/s98pqxx40_script.js, line 625: ReferenceError: zE is not defined
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thethirdwave.activehosted.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thethirdwave.activehosted.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+1651323062992	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'loading'.
+1651323291336	Marionette	INFO	Stopped listening on port 43787
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1651323296071	geckodriver	INFO	Listening on 127.0.0.1:50507
+1651323296116	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "33235" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileCxmgzr"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1651323296588	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileCxmgzr/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:33235/devtools/browser/e7914dc0-4596-4f89-8004-39bdb0f6f57c
+1651323297919	Marionette	INFO	Listening on port 36687
+Read port: 36687
+1651323298043	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://d226aj4ao1t61q.cloudfront.net/s98pqxx40_script.js, line 625: ReferenceError: zE is not defined
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thethirdwave.activehosted.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thethirdwave.activehosted.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+1651323343731	Marionette	INFO	Stopped listening on port 36687
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1651323346735	geckodriver	INFO	Listening on 127.0.0.1:47019
+1651323346788	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "48449" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileuBjY1M"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1651323347264	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileuBjY1M/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:48449/devtools/browser/ed709bfc-63d2-4b83-853e-663045a7b239
+1651323348903	Marionette	INFO	Listening on port 37767
+Read port: 37767
+1651323349004	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://d226aj4ao1t61q.cloudfront.net/s98pqxx40_script.js, line 625: ReferenceError: zE is not defined
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thethirdwave.activehosted.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thethirdwave.activehosted.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+1651323354789	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'loading'.
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 575: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1651323427453	Marionette	INFO	Stopped listening on port 37767
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1651323432163	geckodriver	INFO	Listening on 127.0.0.1:34131
+1651323432207	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "42421" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileaEIIWp"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1651323432667	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileaEIIWp/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:42421/devtools/browser/b8cf3f24-9ccd-4f9a-8d4f-d7bf0812e7dd
+1651323433980	Marionette	INFO	Listening on port 36051
+Read port: 36051
+1651323434029	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://d226aj4ao1t61q.cloudfront.net/s98pqxx40_script.js, line 625: ReferenceError: zE is not defined
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thethirdwave.activehosted.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thethirdwave.activehosted.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+1651323482470	Marionette	INFO	Stopped listening on port 36051
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1651323484547	geckodriver	INFO	Listening on 127.0.0.1:36181
+1651323484595	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "58627" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilewh8ueV"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1651323485090	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilewh8ueV/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:58627/devtools/browser/62b4518b-cf6f-43a6-8141-39c8b0d98c07
+1651323486449	Marionette	INFO	Listening on port 38179
+Read port: 38179
+1651323486558	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://d226aj4ao1t61q.cloudfront.net/s98pqxx40_script.js, line 625: ReferenceError: zE is not defined
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thethirdwave.activehosted.com"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thethirdwave.activehosted.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+JavaScript error: https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js, line 3368: TypeError: destination is undefined
+JavaScript warning: https://thethirdwave.activehosted.com/admin/js/emailpreview_designer.js?v=913-new-social-icons3868f7b3f8a02d87, line 440: unreachable code after return statement
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thethirdwave.activehosted.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thethirdwave.activehosted.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thethirdwave.activehosted.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thethirdwave.activehosted.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thethirdwave.activehosted.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://thethirdwave.activehosted.com"
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 136: TypeError: gRecipeManager is null
+console.error: "Unable to find target with innerWindowId:2147483663"
+console.error: "Unable to find target with innerWindowId:2147483663"
+console.error: "Unable to find target with innerWindowId:2147483667"
+console.error: "Unable to find target with innerWindowId:2147483667"
+console.error: "Unable to find target with innerWindowId:2147483674"
+console.error: "Unable to find target with innerWindowId:2147483674"
+console.error: "Unable to find target with innerWindowId:2147483675"
+console.error: "Unable to find target with innerWindowId:2147483675"
+console.error: "Unable to find target with innerWindowId:2147483675"
+console.error: "Unable to find target with innerWindowId:2147483680"
+console.error: "Unable to find target with innerWindowId:2147483680"
+JavaScript error: https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js, line 3368: TypeError: destination is undefined
+JavaScript warning: https://thethirdwave.activehosted.com/admin/js/emailpreview_designer.js?v=913-new-social-icons3868f7b3f8a02d87, line 440: unreachable code after return statement
+console.error: "Unable to find target with innerWindowId:2147483681"
+console.error: "Unable to find target with innerWindowId:2147483681"
+console.error: "Unable to find target with innerWindowId:2147483685"
+console.error: "Unable to find target with innerWindowId:2147483685"
+console.error: "Unable to find target with innerWindowId:2147483692"
+console.error: "Unable to find target with innerWindowId:2147483692"
+JavaScript error: https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js, line 3368: TypeError: destination is undefined
+JavaScript warning: https://thethirdwave.activehosted.com/admin/js/emailpreview_designer.js?v=913-new-social-icons3868f7b3f8a02d87, line 440: unreachable code after return statement
+1651330229503	geckodriver	INFO	Listening on 127.0.0.1:52531
+1651330230121	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "34277" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileG7St7r"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1651330231812	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileG7St7r/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:34277/devtools/browser/e13b12bd-c125-4839-9f78-475fc057bceb
+1651330233294	Marionette	INFO	Listening on port 37007
+Read port: 37007
+1651330233341	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://d226aj4ao1t61q.cloudfront.net/s98pqxx40_script.js, line 625: ReferenceError: zE is not defined
+1651330258306	Marionette	INFO	Stopped listening on port 37007
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
