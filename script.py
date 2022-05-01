@@ -43,10 +43,10 @@ def traversePages(page_number):
 
     browser.get(page_with_designer)
     time.sleep(3)
-    if(browser.current_url == page_with_designer):
-        print("same url")
+    if page_with_designer not in browser.current_url:
+        print("diferent url")
     else:
-        print("diferent")
+        print("same url")
 
     # browser.get(page_with_designer)
     
