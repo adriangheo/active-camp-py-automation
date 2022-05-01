@@ -328,7 +328,7 @@ def traversePages(page_number):
 
 
 # 1154, and 1154 are ok, but it breaks at 1155
-for index in range(1157, 1159, 1):
+for index in range(1157, 1161, 1):
     target_values_list.append("-----")
     traversePages(index)
 
