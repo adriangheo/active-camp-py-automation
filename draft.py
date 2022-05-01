@@ -15,44 +15,54 @@ from apis.google_api import GoogleApi
 import time 
 
 
-# # Python Selenium - code
-# browser = webdriver.Chrome()
+# Python Selenium - code
+browser = webdriver.Chrome()
 
-# login_page = LoginPage(driver=browser)
+login_page = LoginPage(driver=browser)
 
-# login_page.go()
+login_page.go()
 
-# login_page.username_field.input_text('marian@dacianempire.com')
-# login_page.password_field.input_text('daTIVoINgerymPolIzAR')
-# login_page.login_btn.click()
+login_page.username_field.input_text('marian@dacianempire.com')
+login_page.password_field.input_text('daTIVoINgerymPolIzAR')
+login_page.login_btn.click()
 
 # browser.get('https://thethirdwave.activehosted.com/report/#/campaign/1/overview')
 
+currentUrl = browser.current_url
+wait = WebDriverWait(browser, 4)
+flagUrlNonExistant = False
 
-
-
-
-# # if(browser.current_url == 'https://thethirdwave.activehosted.com/report/#/campaign'):
-
-# currentUrl = browser.current_url
-# wait = WebDriverWait(browser, 4)
-
-
-# flagUrlNonExistant = False
-# def waitForUrlChange():
-#     global currentUrl
-#     wait.until(EC.url_changes(currentUrl)) 
-#     if(currentUrl == "https://thethirdwave.activehosted.com/report/#/campaign"):
-#         flagUrlNonExistant = True
-    
-
-# waitForUrlChange()
-
-
-my_range = range(1, 20, 1)
+my_range = range(1, 50, 1)
+all_overview_uls_list = []
 
 for n in my_range:
-    print("https://thethirdwave.activehosted.com/report/#/campaign/"+ str(n) +"/overview")
+    # browser.get("https://thethirdwave.activehosted.com/report/#/campaign/"+ str(n) +"/overview")
+    all_overview_uls_list.append("https://thethirdwave.activehosted.com/report/#/campaign/"+ str(n) +"/overview")
+
+index_current_url = 1
+
+def waitForUrlChange():
+    global currentUrl
+    WebDriverWait(browser, 8).until(EC.url_changes(currentUrl)) 
+    currentUrl = browser.current_url
+    
+for index in range(50):
+    if(currentUrl == "https://thethirdwave.activehosted.com/report/#/campaign"):
+        index_current_url = index_current_url + 1
+        browser.get(all_overview_uls_list[index_current_url])
+    waitForUrlChange()
+
+
+# if(browser.current_url == 'https://thethirdwave.activehosted.com/report/#/campaign'):
+
+
+
+
+
+
+
+
+
     
 
 
