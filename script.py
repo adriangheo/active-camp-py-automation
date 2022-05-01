@@ -12,7 +12,7 @@ from pages.automations_page import AutomationsPage
 from pages.login_page import LoginPage
 from apis.google_api import GoogleApi
 
-
+import time 
 
 
 # Python Selenium - code
@@ -41,14 +41,14 @@ def ac_camp_nr():
 
 camp_nr = ac_camp_nr()
 
-overview_link = "https://thethirdwave.activehosted.com/report/#/campaign/"+ camp_nr +"/overview"
-opens_link = "https://thethirdwave.activehosted.com/report/#/campaign/"+ camp_nr +"/opens"
-clicks_link = "https://thethirdwave.activehosted.com/report/#/campaign/"+ camp_nr +"/clicks"
-preview_link = "https://thethirdwave.activehosted.com/preview.php?c="+ camp_nr + "&preview"
-designer_link = "https://thethirdwave.activehosted.com/campaign/" + camp_nr + "/designer"
+page_with_overview = "https://thethirdwave.activehosted.com/report/#/campaign/"+ camp_nr +"/overview"
+page_with_opens = "https://thethirdwave.activehosted.com/report/#/campaign/"+ camp_nr +"/opens"
+page_with_clicks = "https://thethirdwave.activehosted.com/report/#/campaign/"+ camp_nr +"/clicks"
+page_with_preview = "https://thethirdwave.activehosted.com/preview.php?c="+ camp_nr + "&preview"
+page_with_designer = "https://thethirdwave.activehosted.com/campaign/" + camp_nr + "/designer"
 
 
-browser.get(designer_link)
+browser.get(page_with_designer)
 
 btn_temp_settings = WebDriverWait(browser, 5).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, '.temp-settings'))
@@ -223,32 +223,38 @@ print("analytics_campaign_name: " + analytics_campaign_name)
 
 # 
 # Start of Overview
-browser.get(overview_link)
+browser.get(page_with_overview)
 
 total_sent = WebDriverWait(browser, 5).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, 'span.sentto'))
 ).text
 target_values_list.append(total_sent)
+print("total_sent: " + total_sent)
+
 # End of Overview
 # 
 
 
 # 
-# Start of opens_link
-browser.get(opens_link)
-
+# Start of page_with_opens
+browser.get(page_with_opens)
+time.sleep(0.5) # necesary because total_open_links field initially loads with the value 0
 total_open_links = WebDriverWait(browser, 5).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, '#open_total_t'))
 ).text
 target_values_list.append(total_open_links)
+print("total_open_links: " + total_open_links)
+
 
 unique_open_links = WebDriverWait(browser, 5).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, '#open_unique_t'))
 ).text
 target_values_list.append(unique_open_links)
+print("unique_open_links: " + unique_open_links)
 
 
-# End of opens_link
+
+# End of page_with_opens
 # 
 
 
