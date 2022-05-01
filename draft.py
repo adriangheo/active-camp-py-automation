@@ -77,6 +77,12 @@ for index in range(1152, 1155, 1):
 
 
 
-    
+popup_close_btn = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.CSS_SELECTOR, 'div[id="template-setting"] a[class="close"]'))
+)
+popup_close_btn.click()
 
-
+next_btn = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.CSS_SELECTOR, '.ac_button.next.alt1.alt2'))
+)
+next_btn.click()
