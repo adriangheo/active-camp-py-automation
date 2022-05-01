@@ -32,7 +32,7 @@ currentUrl = browser.current_url
 wait = WebDriverWait(browser, 4)
 flagUrlNonExistant = False
 
-my_range = range(1, 50, 1)
+my_range = range(1150, 1160, 1)
 all_overview_uls_list = []
 
 for n in my_range:
@@ -46,11 +46,18 @@ def waitForUrlChange():
     WebDriverWait(browser, 8).until(EC.url_changes(currentUrl)) 
     currentUrl = browser.current_url
     
-for index in range(50):
-    if(currentUrl == "https://thethirdwave.activehosted.com/report/#/campaign"):
-        index_current_url = index_current_url + 1
-        browser.get(all_overview_uls_list[index_current_url])
-    waitForUrlChange()
+for index in range(10):
+    time.sleep(4)
+    browser.get(all_overview_uls_list[index_current_url])
+    index_current_url = index_current_url + 1
+    time.sleep(4)
+
+
+    # if(currentUrl == "https://thethirdwave.activehosted.com/report/#/campaign"):
+    #     index_current_url = index_current_url + 1
+    #     browser.get(all_overview_uls_list[index_current_url])
+    # WebDriverWait(browser, 8).until(EC.url_changes(currentUrl)) 
+    # waitForUrlChange()
 
 
 # if(browser.current_url == 'https://thethirdwave.activehosted.com/report/#/campaign'):
