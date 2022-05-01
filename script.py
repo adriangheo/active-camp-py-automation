@@ -32,25 +32,33 @@ browser.get('https://thethirdwave.activehosted.com/report/#/campaign/1153/overvi
 
 target_values_list = []
 
-def ac_camp_nr():
-    str_url = browser.current_url
-    start = str_url.find("campaign/") + len("campaign/")
-    end = str_url.find("/overview")
-    campaign_nr = str_url[start:end]
-    return campaign_nr
+# def ac_camp_nr():
+#     str_url = browser.current_url
+#     start = str_url.find("campaign/") + len("campaign/")
+#     end = str_url.find("/overview")
+#     campaign_nr = str_url[start:end]
+#     return campaign_nr
 
-camp_nr = ac_camp_nr()
+# camp_nr = ac_camp_nr()
 
-page_with_overview = "https://thethirdwave.activehosted.com/report/#/campaign/"+ camp_nr +"/overview"
-page_with_opens = "https://thethirdwave.activehosted.com/report/#/campaign/"+ camp_nr +"/opens"
-page_with_clicks = "https://thethirdwave.activehosted.com/report/#/campaign/"+ camp_nr +"/clicks"
-page_with_preview = "https://thethirdwave.activehosted.com/preview.php?c="+ camp_nr + "&preview"
-page_with_designer = "https://thethirdwave.activehosted.com/campaign/" + camp_nr + "/designer"
-page_with_unsubscribes = "https://thethirdwave.activehosted.com/report/#/campaign/" + camp_nr + "/unsubscribes"
-page_with_bounces = "https://thethirdwave.activehosted.com/report/#/campaign/" + camp_nr + "/bounces"
+# page_with_overview = "https://thethirdwave.activehosted.com/report/#/campaign/"+ camp_nr +"/overview"
+# page_with_opens = "https://thethirdwave.activehosted.com/report/#/campaign/"+ camp_nr +"/opens"
+# page_with_clicks = "https://thethirdwave.activehosted.com/report/#/campaign/"+ camp_nr +"/clicks"
+# page_with_preview = "https://thethirdwave.activehosted.com/preview.php?c="+ camp_nr + "&preview"
+# page_with_designer = "https://thethirdwave.activehosted.com/campaign/" + camp_nr + "/designer"
+# page_with_unsubscribes = "https://thethirdwave.activehosted.com/report/#/campaign/" + camp_nr + "/unsubscribes"
+# page_with_bounces = "https://thethirdwave.activehosted.com/report/#/campaign/" + camp_nr + "/bounces"
 
 
-def traversePages():
+def traversePages(page_number):
+    page_with_overview = "https://thethirdwave.activehosted.com/report/#/campaign/"+ str(page_number) +"/overview"
+    page_with_opens = "https://thethirdwave.activehosted.com/report/#/campaign/"+ str(page_number) +"/opens"
+    page_with_clicks = "https://thethirdwave.activehosted.com/report/#/campaign/"+ str(page_number) +"/clicks"
+    page_with_preview = "https://thethirdwave.activehosted.com/preview.php?c="+ str(page_number) + "&preview"
+    page_with_designer = "https://thethirdwave.activehosted.com/campaign/" + str(page_number) + "/designer"
+    page_with_unsubscribes = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(page_number) + "/unsubscribes"
+    page_with_bounces = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(page_number) + "/bounces"
+
     browser.get(page_with_designer)
 
     btn_temp_settings = WebDriverWait(browser, 5).until(
@@ -315,7 +323,12 @@ def traversePages():
     target_values_list.append(revenue)
 
 
-traversePages()
+
+for index in range(1152, 1155, 1):
+    time.sleep(1)
+    traversePages(index)
+    time.sleep(1)
+    
 
 # links_file = open('list-of-links.txt', 'r')
 # lines = links_file.readlines()
