@@ -32,7 +32,61 @@ login_page.login_btn.click()
 target_values_list = []
 
 
+
+def check_exists_by_css_selector(cssselector):
+    try:
+        element = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located(
+                (By.CSS_SELECTOR, cssselector))
+        )
+    except TimeoutException:
+        print("element was NOT found")
+        return False
+    else:
+        print("element was found")
+    return element
+
+
+
+
+
+
+elment_not_found = False
+
+
+def check_exists_by_css(cssselector):
+    try:
+        element = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located(
+                (By.CSS_SELECTOR, cssselector))
+        )
+    except TimeoutException:
+        print("element was NOT found")
+        global elment_not_found 
+        elment_not_found = True
+    else:
+        print("element was found")
+    return element
+
+
+def check_exists_by_xpath(xpathselector):
+    try:
+        element = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located(
+                (By.XPATH, xpathselector))
+        )
+    except TimeoutException:
+        print("element was NOT found")
+        global elment_not_found 
+        elment_not_found = True
+    else:
+        print("element was found")
+    return element
+
 def traversePages(page_number):
+    global elment_not_found 
+    elment_not_found = False
+
     page_with_overview = "https://thethirdwave.activehosted.com/report/#/campaign/" +  str(page_number) + "/overview"
     page_with_opens = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(page_number) + "/opens"
     page_with_clicks = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(page_number) + "/clicks"
@@ -44,26 +98,20 @@ def traversePages(page_number):
     browser.get(page_with_designer)
 
     try:
-        btn_temp_settings = WebDriverWait(browser, 5).until(
-            EC.visibility_of_element_located(
-                (By.CSS_SELECTOR, '.temp-settings'))
-        )
+        btn_temp_settings = check_exists_by_css('.temp-settings')
+        if(elment_not_found == True):
+            return False
         btn_temp_settings.click()
 
-        subject_text = WebDriverWait(browser, 5).until(
-            EC.visibility_of_element_located(
-                (By.CSS_SELECTOR, 'input[name="subject"]'))
-        ).get_attribute('value')
+        subject_text = check_exists_by_css('input[name="subject"]')
+        if(elment_not_found == True):
+            return False
         target_values_list.append(subject_text)
-
         print("subject_text: " + subject_text)
 
-        preheader_text = WebDriverWait(browser, 5).until(
-            EC.visibility_of_element_located(
-                (By.CSS_SELECTOR, 'input[name="preheader_text"]'))
-        ).get_attribute('value')
-        if(preheader_text == ""):
-            preheader_text = "n/a"
+        preheader_text = check_exists_by_css('input[name="preheader_text"]')
+        if(elment_not_found == True):
+            return False
         target_values_list.append(preheader_text)
         print("preheader_text: " + preheader_text)
 
@@ -272,14 +320,15 @@ def traversePages(page_number):
         # End of page_with_bounces
 
         target_values_list.append(revenue)
-    except TimeoutException as ex:
+    except Exception as ex:
         print("Exception has been thrown. " + str(ex))
+        return False
     finally:
         print("went though one try block")
 
 
 # 1154, and 1154 are ok, but it breaks at 1155
-for index in range(1155, 1159, 1):
+for index in range(1157, 1159, 1):
     target_values_list.append("-----")
     traversePages(index)
 
