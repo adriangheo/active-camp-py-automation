@@ -41,9 +41,9 @@ def traversePages(page_number):
     page_with_unsubscribes = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(page_number) + "/unsubscribes"
     page_with_bounces = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(page_number) + "/bounces"
 
-    browser.get(page_with_preview)
+    browser.get(page_with_designer)
     time.sleep(3)
-    if(browser.current_url == page_with_preview):
+    if(browser.current_url == page_with_designer):
         print("same url")
     else:
         print("diferent")
