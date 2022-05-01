@@ -54,6 +54,8 @@ for index in range(5):
         print("non existant page")
     time.sleep(4)
 
+    "https://thethirdwave.activehosted.com/report/#/campaign"
+
 
     # if(currentUrl == "https://thethirdwave.activehosted.com/report/#/campaign"):
     #     index_current_url = index_current_url + 1
