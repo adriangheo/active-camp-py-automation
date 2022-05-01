@@ -3,6 +3,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
+
 
 # Python GoogleSheetsAPI-imports
 from googleapiclient.discovery import build
@@ -270,12 +272,14 @@ def traversePages(page_number):
         # End of page_with_bounces
 
         target_values_list.append(revenue)
+    except TimeoutException as ex:
+        print("Exception has been thrown. " + str(ex))
     finally:
         print("went though one try block")
 
 
 # 1154, and 1154 are ok, but it breaks at 1155
-for index in range(1153, 1159, 1):
+for index in range(1155, 1159, 1):
     traversePages(index)
 
 
