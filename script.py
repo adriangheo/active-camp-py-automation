@@ -46,6 +46,8 @@ page_with_opens = "https://thethirdwave.activehosted.com/report/#/campaign/"+ ca
 page_with_clicks = "https://thethirdwave.activehosted.com/report/#/campaign/"+ camp_nr +"/clicks"
 page_with_preview = "https://thethirdwave.activehosted.com/preview.php?c="+ camp_nr + "&preview"
 page_with_designer = "https://thethirdwave.activehosted.com/campaign/" + camp_nr + "/designer"
+page_with_unsubscribes = "https://thethirdwave.activehosted.com/report/#/campaign/" + camp_nr + "/unsubscribes"
+page_with_bounces = "https://thethirdwave.activehosted.com/report/#/campaign/" + camp_nr + "/bounces"
 
 
 browser.get(page_with_designer)
@@ -231,6 +233,10 @@ total_sent = WebDriverWait(browser, 5).until(
 target_values_list.append(total_sent)
 print("total_sent: " + total_sent)
 
+
+revenue = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.XPATH, "//span[contains(@class, 'panel-summary-currency')][1]"))
+).text #this is added later in the   target_values_list
 # End of Overview
 # 
 
@@ -238,26 +244,74 @@ print("total_sent: " + total_sent)
 # 
 # Start of page_with_opens
 browser.get(page_with_opens)
-time.sleep(0.5) # necesary because total_open_links field initially loads with the value 0
-total_open_links = WebDriverWait(browser, 5).until(
+time.sleep(1) # necesary because total_open_links field initially loads with the value 0
+total_opens = WebDriverWait(browser, 5).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, '#open_total_t'))
 ).text
-target_values_list.append(total_open_links)
-print("total_open_links: " + total_open_links)
+target_values_list.append(total_opens)
+print("total_opens: " + total_opens)
 
 
-unique_open_links = WebDriverWait(browser, 5).until(
+unique_opens = WebDriverWait(browser, 5).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, '#open_unique_t'))
 ).text
-target_values_list.append(unique_open_links)
-print("unique_open_links: " + unique_open_links)
-
-
-
+target_values_list.append(unique_opens)
+print("unique_opens: " + unique_opens)
 # End of page_with_opens
 # 
 
 
+
+
+# 
+# Start of page_with_links
+browser.get(page_with_clicks)
+time.sleep(1) # necesary because total_open_links field initially loads with the value 0
+total_link_clicks = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.CSS_SELECTOR, '#link_total_t'))
+).text
+target_values_list.append(total_link_clicks)
+print("total_link_clicks: " + total_link_clicks)
+
+
+unique_link_clicks = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.CSS_SELECTOR, '#link_unique_t'))
+).text
+target_values_list.append(unique_link_clicks)
+print("unique_link_clicks: " + unique_link_clicks)
+# End of page_with_links
+# 
+
+
+
+
+
+# 
+# Start of page_with_unsubscribes
+browser.get(page_with_unsubscribes)
+time.sleep(1) # necesary because total_open_links field initially loads with the value 0
+total_unsubscribes = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.CSS_SELECTOR, '#unsubscribe_total_t'))
+).text
+target_values_list.append(total_unsubscribes)
+print("total_unsubscribes: " + total_unsubscribes)
+# End of page_with_unsubscribes
+# 
+
+
+# 
+# Start of page_with_bounces
+browser.get(page_with_bounces)
+time.sleep(1) # necesary because total_open_links field initially loads with the value 0
+total_bounces = WebDriverWait(browser, 5).until(
+    EC.visibility_of_element_located((By.CSS_SELECTOR, '#bounce_total_t'))
+).text
+target_values_list.append(total_bounces)
+print("total_bounces: " + total_bounces)
+# End of page_with_bounces
+
+
+target_values_list.append(revenue)
 
 
 # links_file = open('list-of-links.txt', 'r')
