@@ -16,6 +16,8 @@ from apis.google_api import GoogleApi
 
 import time
 
+from inspect import currentframe, getframeinfo
+
 
 # Python Selenium - code
 browser = webdriver.Chrome()
@@ -36,6 +38,19 @@ def check_exists_by_css_selector(cssselector):
         WebDriverWait(browser, 5).until(
             EC.visibility_of_element_located(
                 (By.CSS_SELECTOR, cssselector))
+        )
+    except Exception:
+        print("element was NOT found")
+        return False
+    else:
+        print("element was found")
+    return True
+
+def check_exists_by_xpath(xpath):
+    try:
+        WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located(
+                (By.XPATH, xpath))
         )
     except Exception:
         print("element was NOT found")
@@ -143,7 +158,6 @@ def traversePages(automation_id):
         # input()
 
 
-
         if 'switch_on' in read_tracking_switch.get_attribute('class').split():
             target_values_list.append("ON")
             myfile.write("ON\t")
@@ -152,7 +166,6 @@ def traversePages(automation_id):
             target_values_list.append("OFF")
             myfile.write("OFF\t")
             print('switch is off')
-
 
         open_read_automations = WebDriverWait(browser, 5).until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, '.open-read-automations'))
@@ -165,7 +178,6 @@ def traversePages(automation_id):
         target_values_list.append(O_R_Automations_text)
         myfile.write("" +  O_R_Automations_text + "\t")
         print("" + O_R_Automations_text)
-
 
         popup_close_btn = WebDriverWait(browser, 5).until(
             EC.visibility_of_element_located((By.XPATH, '//*[contains(text(),"When this message is opened")]/preceding-sibling::a[1]'))
@@ -189,29 +201,36 @@ def traversePages(automation_id):
             myfile.write("OFF\t")
             print('switch is off')
 
-        open_cstmize_lnk_traking = WebDriverWait(browser, 5).until(
-            EC.visibility_of_element_located((By.XPATH, "//div[@class='options-row link_tracking']/div[position()=3]/a"))
-        )
-        open_cstmize_lnk_traking.click()
+        # print("input() function call. !! This is where the problem is. Please hit Enter inside the terminal")
+        # input()
 
-        cstmize_lnk_traking_urls = WebDriverWait(browser, 5).until(
-            EC.presence_of_all_elements_located((By.CSS_SELECTOR, "tbody[id='tlinkshtmllist'] .text_left"))
-        )
-        # print("cstmize_lnk_traking_urls: " + cstmize_lnk_traking_urls)  # error can only concatenate strings to strings, not arrays
-        texts = ""
-        for matched_element in cstmize_lnk_traking_urls:
-            text = matched_element.text
-            texts += " "
-            texts += text
+        if(check_exists_by_xpath("//div[@class='options-row link_tracking']/div[position()=3]/a")):
+            open_cstmize_lnk_traking = WebDriverWait(browser, 5).until(
+                EC.visibility_of_element_located((By.XPATH, "//div[@class='options-row link_tracking']/div[position()=3]/a"))
+            )
+            open_cstmize_lnk_traking.click()
 
+            cstmize_lnk_traking_urls = WebDriverWait(browser, 5).until(
+                EC.presence_of_all_elements_located((By.CSS_SELECTOR, "tbody[id='tlinkshtmllist'] .text_left"))
+            )
+            # print("cstmize_lnk_traking_urls: " + cstmize_lnk_traking_urls)  # error can only concatenate strings to strings, not arrays
+            texts = ""
+            for matched_element in cstmize_lnk_traking_urls:
+                text = matched_element.text
+                texts += " "
+                texts += text
 
-        target_values_list.append(texts)
-        myfile.write("" +  texts + "\t")
+            target_values_list.append(texts)
+            myfile.write("" +  texts + "\t")
 
-        popup_close_btn = WebDriverWait(browser, 5).until(
-            EC.visibility_of_element_located((By.XPATH, '//*[contains(text(),"Customize Link Tracking")]/preceding-sibling::a[1]'))
-        )
-        popup_close_btn.click()
+            popup_close_btn = WebDriverWait(browser, 5).until(
+                EC.visibility_of_element_located((By.XPATH, '//*[contains(text(),"Customize Link Tracking")]/preceding-sibling::a[1]'))
+            )
+            popup_close_btn.click()
+        else:
+            target_values_list.append("")
+            myfile.write(" \t")
+
 
         # swith-03
         link_tracking_switch = WebDriverWait(browser, 5).until(
@@ -240,17 +259,21 @@ def traversePages(automation_id):
             myfile.write("OFF\t")
             print('switch is off')
 
-        open_cstmize_lnk_traking = WebDriverWait(browser, 5).until(
-            EC.visibility_of_element_located((By.XPATH, "//div[@class='options-row analytics']/div[contains(@class,'options-link')]//a"))
-        )
-        open_cstmize_lnk_traking.click()
+        if(check_exists_by_xpath("//div[@class='options-row analytics']/div[contains(@class,'optexitions-link')]//a")):
+            open_cstmize_lnk_traking = WebDriverWait(browser, 5).until(
+                EC.visibility_of_element_located((By.XPATH, "//div[@class='options-row analytics']/div[contains(@class,'optexitions-link')]//a"))
+            )
+            open_cstmize_lnk_traking.click()
 
-        analytics_campaign_name = WebDriverWait(browser, 5).until(
-            EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[name="analytics_campaign_name"]'))
-        ).get_attribute("value")
-        target_values_list.append(analytics_campaign_name)
-        myfile.write("" +  analytics_campaign_name + "\t")
-        print("analytics_campaign_name: " + analytics_campaign_name)
+            analytics_campaign_name = WebDriverWait(browser, 5).until(
+                EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[name="analytics_campaign_name"]'))
+            ).get_attribute("value")
+            target_values_list.append(analytics_campaign_name)
+            myfile.write("" +  analytics_campaign_name + "\t")
+            print("analytics_campaign_name: " + analytics_campaign_name)
+        else:
+            myfile.write(" \t")
+            print("analytics_campaign_name: ")
     else:
         myfile.write("\t\t\t\t\t\t\t")
         # End of Campaign Summary
@@ -345,7 +368,7 @@ def traversePages(automation_id):
 
 
 # 1154, and 1154 are ok, but it breaks at 1155
-for index in range(1154, 1161, 1):
+for index in range(14, 15, 1):
     target_values_list.append("-----")
     traversePages(index)
 
