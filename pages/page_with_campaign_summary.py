@@ -67,10 +67,8 @@ class PageWithCampaignSummary(object):
 
     @property
     def link_tracking_urls(self):
-        elements = WebDriverWait(
-            self.driver,10).until(
-                EC.visibility_of_all_elements_located((By.CSS_SELECTOR, "tbody[id='tlinkshtmllist'] .text_left")))
-        print(elements)
-
-WebDriverWait(browser, 8).until(EC.visibility_of_all_elements_located((By.CSS_SELECTOR, "div.sentence-and-translations.md-whiteframe-1dp.flex")))
-
+        locator = (By.CSS_SELECTOR, "tbody[id='tlinkshtmllist'] .text_left")
+        return BaseElements(
+            driver = self.driver, 
+            by = locator[0],
+            value = locator[1])

@@ -13,17 +13,20 @@ class BaseElements(object):
 
     def find(self):
         # self.driver.find_element(by=self.by, value=self.locator)
-        element1 = WebDriverWait(
+        elements = WebDriverWait(
             self.driver,10).until(
                 EC.visibility_of_all_elements_located(self.locator))
 
+        for elm in elements:
+            self.web_elements.append(elm)
+            print(elm)
                 
-        # self.web_element.append('aaa')
-        # self.web_element.append('bbb')
-        print("base elm start")
-        self.web_elements.append(5)
-        self.web_elements.append(7)
-        print(type(self.web_elements))
-        print("base elm end")
+        # # self.web_element.append('aaa')
+        # # self.web_element.append('bbb')
+        # print("base elm start")
+        # self.web_elements.append(5)
+        # self.web_elements.append(7)
+        # print(type(self.web_elements))
+        # print("base elm end")
 
         return None
