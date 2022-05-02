@@ -99,14 +99,25 @@ def traversePages(automation_id):
     # End of settings modal popup for page_with_designer
     # 
 
+
+    # 
+    # Opening page_with_campaign_summary
     next_btn = page_with_designer.btn_to_campaign_summary
     next_btn.click()
     # # print("input() function call. Please hit Enter inside the terminal")
     # # input()
 
     page_with_campaign_summary = PageWithCampaignSummary(driver=browser)
-    swith_btn_nr1 = page_with_campaign_summary.switch_btn_open_read_tracking
-    print(swith_btn_nr1)
+
+    swith_btn1 = page_with_campaign_summary.switch_btn_open_read_tracking
+    classes_of_switch_btn1 = swith_btn1.classes_of_elmnt
+    if 'switch_on' in classes_of_switch_btn1:
+        myfile.write("ON\t")
+        print('switch is on')
+    else:
+        myfile.write("OFF\t")
+        print('switch is off')
+
     # if(check_exists_by_css_selector('[data-section="read_tracking"]')):
     #     # swith-01
     #     read_tracking_switch = WebDriverWait(browser, 5).until(

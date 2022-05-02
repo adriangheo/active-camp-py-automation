@@ -46,3 +46,7 @@ class BaseElement(object):
         if(field_value == ""):
             field_value = "n/a"
         return field_value
+
+    @property
+    def classes_of_elmnt(self):
+        return self.web_element.get_attribute('class').split()
