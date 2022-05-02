@@ -31,6 +31,19 @@ login_page.login_btn.click()
 
 target_values_list = []
 
+def check_exists_by_css_selector(cssselector):
+    try:
+        WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located(
+                (By.CSS_SELECTOR, cssselector))
+        )
+    except Exception:
+        print("element was NOT found")
+        return False
+    else:
+        print("element was found")
+    return True
+
 
 def traversePages(automation_id):
     page_with_overview = "https://thethirdwave.activehosted.com/report/#/campaign/" +  str(automation_id) + "/overview"
@@ -99,8 +112,8 @@ def traversePages(automation_id):
     ) 
     popup_close_btn.click()
 
-    print("input() function call. Please hit Enter inside the terminal")
-    input()
+    # print("input() function call. Please hit Enter inside the terminal")
+    # input()
 
 
     next_btn = WebDriverWait(browser, 5).until(
@@ -108,115 +121,116 @@ def traversePages(automation_id):
     )
     next_btn.click()
 
-    print("input() function call. Please hit Enter inside the terminal")
-    input()
+    # print("input() function call. Please hit Enter inside the terminal")
+    # input()
 
 
-    # swith-01
-    read_tracking_switch = WebDriverWait(browser, 5).until(
-        EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="read_tracking"]'))
-    )
-    print("input() function call. Please hit Enter inside the terminal")
-    input()
-
-
-
-    if 'switch_on' in read_tracking_switch.get_attribute('class').split():
-        print('switch is on')
-        target_values_list.append("ON")
-    else:
-        target_values_list.append("OFF")
-        print('switch is off')
-
-    open_read_automations = WebDriverWait(browser, 5).until(
-        EC.visibility_of_element_located((By.CSS_SELECTOR, '.open-read-automations'))
-    )
-    open_read_automations.click()
-
-    O_R_Automations_text = WebDriverWait(browser, 5).until(
-        EC.visibility_of_element_located((By.CSS_SELECTOR, '.text_left.ac_fs-shmedium'))
-    ).text
-    target_values_list.append(O_R_Automations_text)
-    print("O_R_Automations_text: " + O_R_Automations_text)
-
-
-    popup_close_btn = WebDriverWait(browser, 5).until(
-        EC.visibility_of_element_located((By.XPATH, '//*[contains(text(),"When this message is opened")]/preceding-sibling::a[1]'))
-    )
-    popup_close_btn.click()
-
-
-    # swith-02
-    link_tracking_switch = WebDriverWait(browser, 5).until(
-        EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="link_tracking"]'))
-    )
+    if(check_exists_by_css_selector('[data-section="read_tracking"]')):
+        # swith-01
+        read_tracking_switch = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="read_tracking"]'))
+        )
+        # print("input() function call. Please hit Enter inside the terminal")
+        # input()
 
 
 
-    if 'switch_on' in link_tracking_switch.get_attribute('class').split():
-        print('switch is on')
-        target_values_list.append("ON")
-    else:
-        target_values_list.append("OFF")
-        print('switch is off')
+        if 'switch_on' in read_tracking_switch.get_attribute('class').split():
+            print('switch is on')
+            target_values_list.append("ON")
+        else:
+            target_values_list.append("OFF")
+            print('switch is off')
 
-    open_cstmize_lnk_traking = WebDriverWait(browser, 5).until(
-        EC.visibility_of_element_located((By.XPATH, "//div[@class='options-row link_tracking']/div[position()=3]/a"))
-    )
-    open_cstmize_lnk_traking.click()
+        open_read_automations = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, '.open-read-automations'))
+        )
+        open_read_automations.click()
 
-    cstmize_lnk_traking_urls = WebDriverWait(browser, 5).until(
-        EC.presence_of_all_elements_located((By.CSS_SELECTOR, "tbody[id='tlinkshtmllist'] .text_left"))
-    )
-    # print("cstmize_lnk_traking_urls: " + cstmize_lnk_traking_urls)  # error can only concatenate strings to strings, not arrays
-    texts = []
-    for matched_element in cstmize_lnk_traking_urls:
-        text = matched_element.text
-        texts.append(text)
+        O_R_Automations_text = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, '.text_left.ac_fs-shmedium'))
+        ).text
+        target_values_list.append(O_R_Automations_text)
+        print("O_R_Automations_text: " + O_R_Automations_text)
 
-    target_values_list.append(texts)
 
-    popup_close_btn = WebDriverWait(browser, 5).until(
-        EC.visibility_of_element_located((By.XPATH, '//*[contains(text(),"Customize Link Tracking")]/preceding-sibling::a[1]'))
-    )
-    popup_close_btn.click()
+        popup_close_btn = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located((By.XPATH, '//*[contains(text(),"When this message is opened")]/preceding-sibling::a[1]'))
+        )
+        popup_close_btn.click()
 
-    # swith-03
-    link_tracking_switch = WebDriverWait(browser, 5).until(
-        EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="reply_tracking"]'))
-    )
 
-    if 'switch_on' in link_tracking_switch.get_attribute('class').split():
-        print('switch is on')
-        target_values_list.append("ON")
-    else:
-        target_values_list.append("OFF")
-        print('switch is off')
+        # swith-02
+        link_tracking_switch = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="link_tracking"]'))
+        )
 
-    # swith-04
-    google_analytics_switch = WebDriverWait(browser, 5).until(
-        EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="analytics"]'))
-    )
-    if 'switch_on' in google_analytics_switch.get_attribute('class').split():
-        print('switch is on')
-        target_values_list.append("ON")
-    else:
-        target_values_list.append("OFF")
-        print('switch is off')
 
-    open_cstmize_lnk_traking = WebDriverWait(browser, 5).until(
-        EC.visibility_of_element_located((By.XPATH, "//div[@class='options-row analytics']/div[contains(@class,'options-link')]//a"))
-    )
-    open_cstmize_lnk_traking.click()
 
-    analytics_campaign_name = WebDriverWait(browser, 5).until(
-        EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[name="analytics_campaign_name"]'))
-    ).get_attribute("value")
-    target_values_list.append(analytics_campaign_name)
-    print("analytics_campaign_name: " + analytics_campaign_name)
+        if 'switch_on' in link_tracking_switch.get_attribute('class').split():
+            print('switch is on')
+            target_values_list.append("ON")
+        else:
+            target_values_list.append("OFF")
+            print('switch is off')
 
-    # End of Campaign Summary
-    #
+        open_cstmize_lnk_traking = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located((By.XPATH, "//div[@class='options-row link_tracking']/div[position()=3]/a"))
+        )
+        open_cstmize_lnk_traking.click()
+
+        cstmize_lnk_traking_urls = WebDriverWait(browser, 5).until(
+            EC.presence_of_all_elements_located((By.CSS_SELECTOR, "tbody[id='tlinkshtmllist'] .text_left"))
+        )
+        # print("cstmize_lnk_traking_urls: " + cstmize_lnk_traking_urls)  # error can only concatenate strings to strings, not arrays
+        texts = []
+        for matched_element in cstmize_lnk_traking_urls:
+            text = matched_element.text
+            texts.append(text)
+
+        target_values_list.append(texts)
+
+        popup_close_btn = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located((By.XPATH, '//*[contains(text(),"Customize Link Tracking")]/preceding-sibling::a[1]'))
+        )
+        popup_close_btn.click()
+
+        # swith-03
+        link_tracking_switch = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="reply_tracking"]'))
+        )
+
+        if 'switch_on' in link_tracking_switch.get_attribute('class').split():
+            print('switch is on')
+            target_values_list.append("ON")
+        else:
+            target_values_list.append("OFF")
+            print('switch is off')
+
+        # swith-04
+        google_analytics_switch = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="analytics"]'))
+        )
+        if 'switch_on' in google_analytics_switch.get_attribute('class').split():
+            print('switch is on')
+            target_values_list.append("ON")
+        else:
+            target_values_list.append("OFF")
+            print('switch is off')
+
+        open_cstmize_lnk_traking = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located((By.XPATH, "//div[@class='options-row analytics']/div[contains(@class,'options-link')]//a"))
+        )
+        open_cstmize_lnk_traking.click()
+
+        analytics_campaign_name = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[name="analytics_campaign_name"]'))
+        ).get_attribute("value")
+        target_values_list.append(analytics_campaign_name)
+        print("analytics_campaign_name: " + analytics_campaign_name)
+
+        # End of Campaign Summary
+        #
 
     #
     # Start of Overview
