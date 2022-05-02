@@ -1,16 +1,13 @@
 from selenium.webdriver.common.by import By
 
 from .base_element import BaseElement
-from .base_elements import BaseElements
-from .base_page import BasePage
-
 
 class PageWithOverview(object):
     url = None
 
     def __init__(self, driver, automation_nr):
         self.driver = driver
-        self.url ="https://thethirdwave.activehosted.com/campaign/" + str(automation_nr) + "/overview"
+        self.url ="https://thethirdwave.activehosted.com/report/#/campaign/" + str(automation_nr) + "/overview"
         
     def go(self):
         self.driver.get(self.url)
@@ -26,7 +23,7 @@ class PageWithOverview(object):
             value = locator[1])
 
     @property
-    def revenue(self):
+    def total_revenue(self):
         locator = (By.XPATH, "//span[contains(@class, 'panel-summary-currency')][1]")
         return BaseElement(
             driver = self.driver, 

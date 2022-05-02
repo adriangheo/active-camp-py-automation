@@ -8,7 +8,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
 
-from pages.automations_page import AutomationsPage
 from apis.google_api import GoogleApi
 
 from pages.login_page import LoginPage

@@ -1,6 +1,5 @@
 # Page Object Model Test
 from selenium import webdriver
-from pages.automations_page import AutomationsPage
 
 # Test Setup
 browser = webdriver.Firefox()

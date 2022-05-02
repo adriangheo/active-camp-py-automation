@@ -1,8 +1,7 @@
 from selenium.webdriver.common.by import By
 
 from .base_element import BaseElement
-from .base_elements import BaseElements
-from .base_page import BasePage
+
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC

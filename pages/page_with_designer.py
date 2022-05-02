@@ -1,9 +1,6 @@
 from selenium.webdriver.common.by import By
 
 from .base_element import BaseElement
-from .base_elements import BaseElements
-from .base_page import BasePage
-
 
 class PageWithDesigner(object):
     url = None

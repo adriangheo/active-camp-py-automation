@@ -10,7 +10,6 @@ from selenium.common.exceptions import TimeoutException
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
 
-from pages.automations_page import AutomationsPage
 from pages.login_page import LoginPage
 from pages.page_with_designer import PageWithDesigner
 from pages.page_with_campaign_summary import PageWithCampaignSummary
@@ -177,11 +176,11 @@ def traversePages(automation_id):
     page_with_overview = PageWithOverview(driver=browser, automation_nr=automation_id)
     page_with_overview.go()
 
-    total_sent =  page_with_overview.totalsent
+    total_sent =  page_with_overview.totalsent.text
     myfile.write("" +  total_sent + "\t")
     print("total_sent: " + total_sent)
 
-    revenue =  page_with_overview.revenue #this is used later
+    revenue =  page_with_overview.total_revenue.text #this is used later
     # # End of Overview
     #
 

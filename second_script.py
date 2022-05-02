@@ -11,7 +11,6 @@ from selenium.common.exceptions import NoSuchElementException
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
 
-from pages.automations_page import AutomationsPage
 from pages.login_page import LoginPage
 from apis.google_api import GoogleApi
 

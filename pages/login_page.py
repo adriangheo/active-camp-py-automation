@@ -1,11 +1,16 @@
 from selenium.webdriver.common.by import By
 
 from .base_element import BaseElement
-from .base_page import BasePage
 
 
-class LoginPage(BasePage):
+class LoginPage(object):
     url = 'https://thethirdwave.activehosted.com/'
+
+    def __init__(self, driver):
+        self.driver = driver
+        
+    def go(self):
+        self.driver.get(self.url)
 
     @property
     # def courses_for_duolingo(self):
