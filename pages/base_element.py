@@ -11,6 +11,20 @@ class BaseElement(object):
        self.web_element = None
        self.find()
 
+    def check_exists(self):
+        element = None
+        try:
+            element = WebDriverWait(self.driver, 5).until(
+                EC.visibility_of_element_located(
+                    (self.locator))
+            )
+        except Exception:
+            print("element was NOT found")
+            return False
+        else:
+            print("element was found")
+        return element
+
     def find(self):
         element1 = WebDriverWait(
             self.driver,10).until(

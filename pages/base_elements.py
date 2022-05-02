@@ -18,6 +18,8 @@ class BaseElements(object):
         self.web_element = element1
         return None
 
+        
+
     @property
     def urls_from_customise_link_modal(self):
         texts = ""
@@ -28,12 +30,3 @@ class BaseElements(object):
         return texts
 
 
-        # # self.web_element.append('aaa')
-        # # self.web_element.append('bbb')
-        # print("base elm start")
-        # self.web_elements.append(5)
-        # self.web_elements.append(7)
-        # print(type(self.web_elements))
-        # print("base elm end")
-
-        return None
