@@ -243,8 +243,9 @@ def traversePages(automation_id):
 
 
 # 1154, and 1154 are ok, but it breaks at 1155
-for index in range(1155, 1158, 1):
+for index in range(1155, 1162, 1):
     myfile = open("output.txt", 'a')
     traversePages(index)
     myfile.close()
+
 
