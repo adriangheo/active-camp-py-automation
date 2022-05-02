@@ -39,3 +39,10 @@ class BaseElement(object):
     def text(self):
         text = self.web_element.text
         return text
+
+    @property
+    def field_value(self):
+        field_value = self.web_element.get_attribute('value')
+        if(field_value == ""):
+            field_value = "n/a"
+        return field_value

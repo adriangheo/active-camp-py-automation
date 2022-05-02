@@ -14,3 +14,28 @@ class PaveWithDesigner(object):
         
     def go(self):
         self.driver.get(self.url)
+
+
+    @property
+    def btn_open_settings_modal(self):
+        locator = (By.CSS_SELECTOR, '.temp-settings')
+        return BaseElement(
+            driver = self.driver, 
+            by = locator[0],
+            value = locator[1])
+
+    @property
+    def subject_from_modal(self):
+        locator = (By.CSS_SELECTOR, 'input[name="subject"]')
+        return BaseElement(
+            driver = self.driver, 
+            by = locator[0],
+            value = locator[1])
+
+    @property
+    def preheader_from_modal(self):
+        locator = (By.CSS_SELECTOR, 'input[name="preheader_text"]')
+        return BaseElement(
+            driver = self.driver, 
+            by = locator[0],
+            value = locator[1])

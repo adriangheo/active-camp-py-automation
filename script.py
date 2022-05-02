@@ -58,27 +58,22 @@ def traversePages(automation_id):
     page_with_designer = PaveWithDesigner(driver=browser, automation_nr=automation_id)
     page_with_designer.go()
 
-    # myfile.write("automation-id:" + str(automation_id) + "\t")
-    # browser.get(page_with_designer)
+    myfile.write("automation-id:" + str(automation_id) + "\t")
     
+    time.sleep(2)
+    if "/designer" not in browser.current_url:
+        myfile.write("\n")
+        return False
     
-    # time.sleep(2)
-    # if page_with_designer not in browser.current_url:
-    #     myfile.write("\n")
-    #     return False
-    
-    # btn_temp_settings = WebDriverWait(browser, 5).until(
-    #     EC.visibility_of_element_located(
-    #         (By.CSS_SELECTOR, '.temp-settings'))
-    # )
-    # btn_temp_settings.click()
+    page_with_designer.btn_open_settings_modal.click()
 
-    # subject_text = WebDriverWait(browser, 5).until(
-    #     EC.visibility_of_element_located(
-    #         (By.CSS_SELECTOR, 'input[name="subject"]'))
-    # ).get_attribute('value')
-    # myfile.write("" +  subject_text + "\t")
-    # print("subject_text: " + subject_text)
+    subject_text = page_with_designer.subject_from_modal.field_value
+    myfile.write("" +  subject_text + "\t")
+    print("subject_text: " + subject_text)
+
+    preheader_text = page_with_designer.preheader_from_modal.field_value
+    myfile.write("" +  preheader_text + "\t")
+    print("preheader_text: " + preheader_text)
 
     # preheader_text = WebDriverWait(browser, 5).until(
     #     EC.visibility_of_element_located(
@@ -322,7 +317,7 @@ def traversePages(automation_id):
 
 
 # 1154, and 1154 are ok, but it breaks at 1155
-for index in range(18, 20, 1):
+for index in range(1154, 1160, 1):
     myfile = open("output.txt", 'a')
     traversePages(index)
     myfile.close()

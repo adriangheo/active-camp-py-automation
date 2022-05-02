@@ -73,4 +73,5 @@ automation-id:60
 automation-id:61	Will you share your microdosing experience?	n/a	Paul Austin	paul@thethirdwave.co	contact@thethirdwave.co											automation-id:58	Microdosing Kits Now Available	n/a	Paul Austin	contact@thethirdwave.co	Contact@thethirdwave.co										8242	7,443		3,729		1,065		920		35		2		Not Tracked
 automation-id:59	
 automation-id:60	
-automation-id:61	Will you share your microdosing experience?	n/a	Paul Austin	paul@thethirdwave.co	contact@thethirdwave.co										
+automation-id:61	Will you share your microdosing experience?	n/a	Paul Austin	paul@thethirdwave.co	contact@thethirdwave.co										automation-id:1153	automation-id:1154	Psychedelic consumerism: our response	n/a	automation-id:1155	How to find psychedelic medicines, safely	Beyond the obvious	automation-id:1156	How to find psychedelic medicines, safely	Beyond the obvious	automation-id:1157	Give Me Your Machete!	Check out Mark Plotkin’s TED Talk	automation-id:1158	
+automation-id:1159	
