@@ -8,19 +8,26 @@ class BaseElements(object):
        self.value = value
        self.by = by
        self.locator =  (self.by, self.value)
-       self.web_elements = []
+       self.web_elements = None
        self.find()
 
     def find(self):
-        # self.driver.find_element(by=self.by, value=self.locator)
-        elements = WebDriverWait(
+        element1 = WebDriverWait(
             self.driver,10).until(
-                EC.visibility_of_all_elements_located(self.locator))
+                EC.presence_of_all_elements_located(self.locator))
+        self.web_element = element1
+        return None
 
-        for elm in elements:
-            self.web_elements.append(elm)
-            print(elm)
-                
+    @property
+    def urls_from_customise_link_modal(self):
+        texts = ""
+        for matched_element in self.web_elements:
+            text = matched_element.text
+            texts += " "
+            texts += text
+        return texts
+
+
         # # self.web_element.append('aaa')
         # # self.web_element.append('bbb')
         # print("base elm start")

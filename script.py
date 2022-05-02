@@ -136,18 +136,18 @@ def traversePages(automation_id):
     open_link_tracking_modal = page_with_campaign_summary.btn_link_tracking_open_modal
     open_link_tracking_modal.click()
     
-    # page_with_campaign_summary.link_tracking_urls
+    print(page_with_campaign_summary.link_tracking_urls.urls_from_customise_link_modal)
 
-    cstmize_lnk_traking_urls = WebDriverWait(browser, 5).until(
-        EC.presence_of_all_elements_located((By.CSS_SELECTOR, "tbody[id='tlinkshtmllist'] .text_left"))
-    )
+    # cstmize_lnk_traking_urls = WebDriverWait(browser, 5).until(
+    #     EC.presence_of_all_elements_located((By.CSS_SELECTOR, "tbody[id='tlinkshtmllist'] .text_left"))
+    # )
     # print("cstmize_lnk_traking_urls: " + cstmize_lnk_traking_urls)  # error can only concatenate strings to strings, not arrays
-    texts = ""
-    for matched_element in cstmize_lnk_traking_urls:
-        text = matched_element.text
-        texts += " "
-        texts += text
-    print(texts)
+    # texts = ""
+    # for matched_element in cstmize_lnk_traking_urls:
+    #     text = matched_element.text
+    #     texts += " "
+    #     texts += text
+    # print(texts)
 
 
     #     myfile.write("" +  texts + "\t")
