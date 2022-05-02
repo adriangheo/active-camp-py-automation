@@ -11,10 +11,9 @@ class BaseElement(object):
        self.web_element = None
        self.find()
 
-    def check_exists(self):
-        element = None
+    def check_element_exists(self):
         try:
-            element = WebDriverWait(self.driver, 5).until(
+            WebDriverWait(self.driver, 5).until(
                 EC.visibility_of_element_located(
                     (self.locator))
             )
@@ -23,13 +22,14 @@ class BaseElement(object):
             return False
         else:
             print("element was found")
-        return element
+        return True
 
     def find(self):
-        element1 = WebDriverWait(
-            self.driver,10).until(
-                EC.visibility_of_element_located(self.locator))
-        self.web_element = element1
+        if(self.check_element_exists() ==True):
+            element1 = WebDriverWait(
+                self.driver,10).until(
+                    EC.visibility_of_element_located(self.locator))
+            self.web_element = element1
         return None
 
     def input_text(self, txt):
@@ -37,10 +37,11 @@ class BaseElement(object):
         return None
 
     def click(self):
-        element2 = WebDriverWait(
-            self.driver,10).until(
-                EC.element_to_be_clickable(self.locator))
-        element2.click()
+        if(self.check_element_exists() ==True):
+            element2 = WebDriverWait(
+                self.driver,10).until(
+                    EC.element_to_be_clickable(self.locator))
+            element2.click()
         return None
 
     def attribute(self, attr_name):
@@ -49,23 +50,32 @@ class BaseElement(object):
     
     @property
     def text(self):
-        text = self.web_element.text
-        return text
+        if(self.check_element_exists() ==True):
+            text = self.web_element.text
+            return text
+        else:
+            return ""
 
     @property
     def field_value(self):
-        field_value = self.web_element.get_attribute('value')
-        if(field_value == ""):
-            field_value = "n/a"
-        return field_value
+        if(self.check_element_exists() ==True):
+            field_value = self.web_element.get_attribute('value')
+            if(field_value == ""):
+                field_value = "n/a"
+            return field_value
+        else:
+            return ""
 
     @property
     def switch_btn_value(self):
-        classes_of_switch_btn1 = self.web_element.get_attribute('class').split()
-        field_value = "n/a"
-        if 'switch_on' in classes_of_switch_btn1:
-            field_value = "ON"
+        if(self.check_element_exists() ==True):
+            classes_of_switch_btn1 = self.web_element.get_attribute('class').split()
+            field_value = "n/a"
+            if 'switch_on' in classes_of_switch_btn1:
+                field_value = "ON"
+            else:
+                field_value = "OFF"
+            return field_value
         else:
-            field_value = "OFF"
-        return field_value
+            return ""
 
