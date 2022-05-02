@@ -161,7 +161,7 @@ def traversePages(automation_id):
 
     # swith-04
     switch_btn4 = page_with_campaign_summary.switch_btn_analytics_tracking
-    bnt_value4 = switch_btn3.switch_btn_value
+    bnt_value4 = switch_btn4.switch_btn_value
     myfile.write(bnt_value4 + "\t")
     print('switch is ' + bnt_value4)
 
@@ -171,7 +171,7 @@ def traversePages(automation_id):
 
     analytics_campaing_name = page_with_campaign_summary.analytics_field_from_modal.field_value
     myfile.write("" +  analytics_campaing_name + "\t")
-    print("" + analytics_campaing_name)
+    print("" + analytics_campaing_name + "\t\t\t")
 
 
     # # Start of Overview
