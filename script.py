@@ -32,16 +32,17 @@ login_page.login_btn.click()
 target_values_list = []
 
 
-def traversePages(page_number):
-    page_with_overview = "https://thethirdwave.activehosted.com/report/#/campaign/" +  str(page_number) + "/overview"
-    page_with_opens = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(page_number) + "/opens"
-    page_with_clicks = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(page_number) + "/clicks"
-    page_with_preview = "https://thethirdwave.activehosted.com/preview.php?c=" + str(page_number) + "&preview"
-    page_with_designer = "https://thethirdwave.activehosted.com/campaign/" + str(page_number) + "/designer"
-    page_with_unsubscribes = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(page_number) + "/unsubscribes"
-    page_with_bounces = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(page_number) + "/bounces"
+def traversePages(automation_id):
+    page_with_overview = "https://thethirdwave.activehosted.com/report/#/campaign/" +  str(automation_id) + "/overview"
+    page_with_opens = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(automation_id) + "/opens"
+    page_with_clicks = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(automation_id) + "/clicks"
+    page_with_preview = "https://thethirdwave.activehosted.com/preview.php?c=" + str(automation_id) + "&preview"
+    page_with_designer = "https://thethirdwave.activehosted.com/campaign/" + str(automation_id) + "/designer"
+    page_with_unsubscribes = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(automation_id) + "/unsubscribes"
+    page_with_bounces = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(automation_id) + "/bounces"
 
 
+    target_values_list.append("automation-id:"+  str(automation_id))
     browser.get(page_with_designer)
     time.sleep(2)
     if page_with_designer not in browser.current_url:
@@ -95,18 +96,31 @@ def traversePages(page_number):
 
     popup_close_btn = WebDriverWait(browser, 5).until(
         EC.visibility_of_element_located((By.CSS_SELECTOR, 'div[id="template-setting"] a[class="close"]'))
-    )
+    ) 
     popup_close_btn.click()
+
+    print("input() function call. Please hit Enter inside the terminal")
+    input()
+
 
     next_btn = WebDriverWait(browser, 5).until(
         EC.visibility_of_element_located((By.CSS_SELECTOR, '.ac_button.next.alt1.alt2'))
     )
     next_btn.click()
 
+    print("input() function call. Please hit Enter inside the terminal")
+    input()
+
+
     # swith-01
     read_tracking_switch = WebDriverWait(browser, 5).until(
         EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="read_tracking"]'))
     )
+    print("input() function call. Please hit Enter inside the terminal")
+    input()
+
+
+
     if 'switch_on' in read_tracking_switch.get_attribute('class').split():
         print('switch is on')
         target_values_list.append("ON")
@@ -125,15 +139,20 @@ def traversePages(page_number):
     target_values_list.append(O_R_Automations_text)
     print("O_R_Automations_text: " + O_R_Automations_text)
 
+
     popup_close_btn = WebDriverWait(browser, 5).until(
         EC.visibility_of_element_located((By.XPATH, '//*[contains(text(),"When this message is opened")]/preceding-sibling::a[1]'))
     )
     popup_close_btn.click()
 
+
     # swith-02
     link_tracking_switch = WebDriverWait(browser, 5).until(
         EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="link_tracking"]'))
     )
+
+
+
     if 'switch_on' in link_tracking_switch.get_attribute('class').split():
         print('switch is on')
         target_values_list.append("ON")
@@ -278,7 +297,7 @@ def traversePages(page_number):
 
 
 # 1154, and 1154 are ok, but it breaks at 1155
-for index in range(1153, 1161, 1):
+for index in range(1154, 1161, 1):
     target_values_list.append("-----")
     traversePages(index)
 
