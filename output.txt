@@ -1,0 +1,69 @@
+automation-id:64
+automation-id:65
+automation-id:66
+automation-id:67
+automation-id:68
+automation-id:69
+automation-id:70	Please confirm your subscription to %LISTNAME%	n/a	Paul Austin	paul@thethirdwave.co	n/a										0	
+automation-id:71
+automation-id:72
+automation-id:73
+automation-id:74
+automation-id:75
+automation-id:76
+automation-id:77
+automation-id:78
+automation-id:79
+automation-id:80
+automation-id:81
+automation-id:82
+automation-id:83
+automation-id:84
+automation-id:85
+automation-id:86
+automation-id:87	Research participation opportunity	n/a	Paul Austin	paul@thethirdwave.co	paul@thethirdwave.co										
+automation-id:88	What a year!	n/a	The Third Wave	contact@thethirdwave.co	Contact@thethirdwave.co										24739	
+automation-id:89	Did you know about our podcast?	n/a	Paul Austin	contact@thethirdwave.co	contact@thethirdwave.co	ON	Part 2 - Engagement Tagging	ON	 https://thethirdwave.co/psychedelic-podcast/ https://www.nytimes.com/2017...urgence-daily-life.html?_r=0 https://thethirdwave.co/yes-podcast-updates/ https://thethirdwave.co/no-podcast-updates/ https://www.facebook.com/thirdwavepsychedelics 	OFF	OFF	 			57	
+automation-id:90
+automation-id:91
+automation-id:92
+automation-id:93
+automation-id:94	Microdosing Course Intake Survey: Clarify your intentions	Plus contribute to the larger psychedelic community	The Third Wave	contact@thethirdwave.co	course@thethirdwave.co	ON	Part 2 - Engagement Tagging	ON	 https://paulaustin.typeform.com/to/pUnEkC https://www.thethirdwave.co/ https://twitter.com/thirdwaveishere http://www.youtube.com/channel/UCATHWJYqouqzF3-5GMIaOuQ https://business.facebook.com/thirdwavepsychedelics http://instagram.com/thirdwaveishere https://directory.thethirdwave.co/ 	OFF	OFF	 			2166	
+automation-id:95	Your Invite to the Members-Only Community	n/a	The Third Wave	course@thethirdwave.co	course@thethirdwave.co										0	
+automation-id:96	The Third Wave Podcast Is Back!	n/a	Paul Austin	contact@thethirdwave.co	contact@thethirdwave.co										0	
+automation-id:97	Your Invite to the Members-Only Community	n/a	The Third Wave	course@thethirdwave.co	course@thethirdwave.co										
+automation-id:98	Invite to Members-Only Community	n/a	The Third Wave	course@thethirdwave.co	course@thethirdwave.co										
+automation-id:99	The Third Wave - Members Update	n/a	The Third Wave	angela@thethirdwave.co	n/a										automation-id:64
+automation-id:65
+automation-id:66
+automation-id:67
+automation-id:68
+automation-id:69
+automation-id:70	Please confirm your subscription to %LISTNAME%	n/a	Paul Austin	paul@thethirdwave.co	n/a										0	
+automation-id:71
+automation-id:72
+automation-id:73
+automation-id:74
+automation-id:75
+automation-id:76
+automation-id:77
+automation-id:78
+automation-id:79
+automation-id:80
+automation-id:81
+automation-id:82
+automation-id:83
+automation-id:84
+automation-id:85
+automation-id:86
+automation-id:87	Research participation opportunity	n/a	Paul Austin	paul@thethirdwave.co	paul@thethirdwave.co										
+automation-id:88	What a year!	n/a	The Third Wave	contact@thethirdwave.co	Contact@thethirdwave.co										24739	
+automation-id:89	Did you know about our podcast?	n/a	Paul Austin	contact@thethirdwave.co	contact@thethirdwave.co	ON	Part 2 - Engagement Tagging	ON	 https://thethirdwave.co/psychedelic-podcast/ https://www.nytimes.com/2017...urgence-daily-life.html?_r=0 https://thethirdwave.co/yes-podcast-updates/ https://thethirdwave.co/no-podcast-updates/ https://www.facebook.com/thirdwavepsychedelics 	OFF	OFF	 			57	
+automation-id:90
+automation-id:91
+automation-id:92
+automation-id:93
+automation-id:94	Microdosing Course Intake Survey: Clarify your intentions	Plus contribute to the larger psychedelic community	The Third Wave	contact@thethirdwave.co	course@thethirdwave.co	ON	Part 2 - Engagement Tagging	ON	 https://paulaustin.typeform.com/to/pUnEkC https://www.thethirdwave.co/ https://twitter.com/thirdwaveishere http://www.youtube.com/channel/UCATHWJYqouqzF3-5GMIaOuQ https://business.facebook.com/thirdwavepsychedelics http://instagram.com/thirdwaveishere https://directory.thethirdwave.co/ 	OFF	OFF	 			2166	
+automation-id:95	Your Invite to the Members-Only Community	n/a	The Third Wave	course@thethirdwave.co	course@thethirdwave.co										
+automation-id:96	The Third Wave Podcast Is Back!	n/a	Paul Austin	contact@thethirdwave.co	contact@thethirdwave.co										17606	
+automation-id:97	Your Invite to the Members-Only Community	n/a	The Third Wave	course@thethirdwave.co	course@thethirdwave.co										

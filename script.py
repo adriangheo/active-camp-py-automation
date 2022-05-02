@@ -284,96 +284,103 @@ def traversePages(automation_id):
     # Start of Overview
     browser.get(page_with_overview)
 
-    total_sent = WebDriverWait(browser, 5).until(
-        EC.visibility_of_element_located((By.CSS_SELECTOR, 'span.sentto'))
-    ).text
-    target_values_list.append(total_sent)
-    myfile.write("" +  total_sent + "\t")
-    print("total_sent: " + total_sent)
+    if(check_exists_by_css_selector('span.sentto')):
+        total_sent = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, 'span.sentto'))
+        ).text
+        target_values_list.append(total_sent)
+        myfile.write("" +  total_sent + "\t")
+        print("total_sent: " + total_sent)
 
-    revenue = WebDriverWait(browser, 5).until(
-        EC.visibility_of_element_located((By.XPATH, "//span[contains(@class, 'panel-summary-currency')][1]"))
-    ).text #this is added later in the   target_values_list
-    # End of Overview
-    #
+        revenue = ""   
+        if(check_exists_by_xpath("//span[contains(@class, 'panel-summary-currency')][1]")):
+            revenue = WebDriverWait(browser, 5).until(
+                EC.visibility_of_element_located((By.XPATH, "//span[contains(@class, 'panel-summary-currency')][1]"))
+            ).text #this is added later in the   target_values_list
+        # End of Overview
+        #
 
-    #
-    # Start of page_with_opens
-    browser.get(page_with_opens)
-    time.sleep(1) # necesary because total_open_links field initially loads with the value 0
-    total_opens = WebDriverWait(browser, 5).until(
-        EC.visibility_of_element_located((By.CSS_SELECTOR, '#open_total_t'))
-    ).text
-    target_values_list.append(total_opens)
-    myfile.write("" +  total_opens + "\t\t")
-    print("total_opens: " + total_opens)
+        #
+        # Start of page_with_opens
+        browser.get(page_with_opens)
+        time.sleep(1) # necesary because total_open_links field initially loads with the value 0
+        if(check_exists_by_css_selector('span.sentto') == False):
+            return False
+        total_opens = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, '#open_total_t'))
+        ).text
+        target_values_list.append(total_opens)
+        myfile.write("" +  total_opens + "\t\t")
+        print("total_opens: " + total_opens)
 
-    unique_opens = WebDriverWait(browser, 5).until(
-        EC.visibility_of_element_located((By.CSS_SELECTOR, '#open_unique_t'))
-    ).text
-    target_values_list.append(unique_opens)
-    myfile.write("" +  unique_opens + "\t\t")
-    print("unique_opens: " + unique_opens)
-    # End of page_with_opens
-    #
+        unique_opens = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, '#open_unique_t'))
+        ).text
+        target_values_list.append(unique_opens)
+        myfile.write("" +  unique_opens + "\t\t")
+        print("unique_opens: " + unique_opens)
+        # End of page_with_opens
+        #
 
-    #
-    # Start of page_with_links
-    browser.get(page_with_clicks)
-    time.sleep(1) # necesary because total_open_links field initially loads with the value 0
-    total_link_clicks = WebDriverWait(browser, 5).until(
-        EC.visibility_of_element_located((By.CSS_SELECTOR, '#link_total_t'))
-    ).text
-    target_values_list.append(total_link_clicks)
-    myfile.write("" +  total_link_clicks + "\t\t")
-    print("total_link_clicks: " + total_link_clicks)
+        #
+        # Start of page_with_links
+        browser.get(page_with_clicks)
+        time.sleep(1) # necesary because total_open_links field initially loads with the value 0
+        total_link_clicks = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, '#link_total_t'))
+        ).text
+        target_values_list.append(total_link_clicks)
+        myfile.write("" +  total_link_clicks + "\t\t")
+        print("total_link_clicks: " + total_link_clicks)
 
-    unique_link_clicks = WebDriverWait(browser, 5).until(
-        EC.visibility_of_element_located((By.CSS_SELECTOR, '#link_unique_t'))
-    ).text
-    target_values_list.append(unique_link_clicks)
-    myfile.write("" +  unique_link_clicks + "\t\t")
-    print("unique_link_clicks: " + unique_link_clicks)
-    # End of page_with_links
-    #
+        unique_link_clicks = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, '#link_unique_t'))
+        ).text
+        target_values_list.append(unique_link_clicks)
+        myfile.write("" +  unique_link_clicks + "\t\t")
+        print("unique_link_clicks: " + unique_link_clicks)
+        # End of page_with_links
+        #
 
-    #
-    # Start of page_with_unsubscribes
-    browser.get(page_with_unsubscribes)
-    time.sleep(1) # necesary because total_open_links field initially loads with the value 0
-    total_unsubscribes = WebDriverWait(browser, 5).until(
-        EC.visibility_of_element_located((By.CSS_SELECTOR, '#unsubscribe_total_t'))
-    ).text
-    target_values_list.append(total_unsubscribes)
-    myfile.write("" +  total_unsubscribes + "\t\t")
-    print("total_unsubscribes: " + total_unsubscribes)
-    # End of page_with_unsubscribes
-    #
+        #
+        # Start of page_with_unsubscribes
+        browser.get(page_with_unsubscribes)
+        time.sleep(1) # necesary because total_open_links field initially loads with the value 0
+        total_unsubscribes = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, '#unsubscribe_total_t'))
+        ).text
+        target_values_list.append(total_unsubscribes)
+        myfile.write("" +  total_unsubscribes + "\t\t")
+        print("total_unsubscribes: " + total_unsubscribes)
+        # End of page_with_unsubscribes
+        #
 
-    #
-    # Start of page_with_bounces
-    browser.get(page_with_bounces)
-    time.sleep(1) # necesary because total_open_links field initially loads with the value 0
-    total_bounces = WebDriverWait(browser, 5).until(
-        EC.visibility_of_element_located((By.CSS_SELECTOR, '#bounce_total_t'))
-    ).text
-    target_values_list.append(total_bounces)
-    myfile.write("" +  total_bounces + "\t\t")
-    print("total_bounces: " + total_bounces)
-    # End of page_with_bounces
+        #
+        # Start of page_with_bounces
+        browser.get(page_with_bounces)
+        time.sleep(1) # necesary because total_open_links field initially loads with the value 0
+        total_bounces = WebDriverWait(browser, 5).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, '#bounce_total_t'))
+        ).text
+        target_values_list.append(total_bounces)
+        myfile.write("" +  total_bounces + "\t\t")
+        print("total_bounces: " + total_bounces)
+        # End of page_with_bounces
 
-    target_values_list.append(revenue)
-    myfile.write("" +  revenue + "")
-    myfile.write("\n")
+        target_values_list.append(revenue)
+        myfile.write("" +  revenue + "")
+    
 
 
 # 1154, and 1154 are ok, but it breaks at 1155
-for index in range(14, 15, 1):
+for index in range(64, 98, 1):
     target_values_list.append("-----")
     traversePages(index)
+    myfile.write("\n")
 
 
 myfile.close()
+print("end of script")
 
 
 # links_file = open('list-of-links.txt', 'r')
