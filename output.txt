@@ -67,3 +67,7 @@ automation-id:94	Microdosing Course Intake Survey: Clarify your intentions	Plus 
 automation-id:95	Your Invite to the Members-Only Community	n/a	The Third Wave	course@thethirdwave.co	course@thethirdwave.co										
 automation-id:96	The Third Wave Podcast Is Back!	n/a	Paul Austin	contact@thethirdwave.co	contact@thethirdwave.co										17606	
 automation-id:97	Your Invite to the Members-Only Community	n/a	The Third Wave	course@thethirdwave.co	course@thethirdwave.co										
+automation-id:58	Microdosing Kits Now Available	n/a	Paul Austin	contact@thethirdwave.co	Contact@thethirdwave.co										8242	0		0		1,065		920		0		2		Not Tracked
+automation-id:59	
+automation-id:60	
+automation-id:61	Will you share your microdosing experience?	n/a	Paul Austin	paul@thethirdwave.co	contact@thethirdwave.co											
