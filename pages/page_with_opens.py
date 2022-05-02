@@ -24,7 +24,7 @@ class PageWithOpens(object):
 
     @property
     def prop_unique_opens(self):
-        locator = (By.CSS_SELECTOR, '#open_total_t')
+        locator = (By.CSS_SELECTOR, '#open_unique_t')
         return BaseElement(
             driver = self.driver, 
             by = locator[0],

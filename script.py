@@ -192,7 +192,7 @@ def traversePages(automation_id):
     page_with_opens.go()
     time.sleep(1) # necesary because total_open_links field initially loads with the value 0
     total_opens = page_with_opens.prop_total_number.text
-    myfile.write("" +  total_opens + "\t\t")
+    myfile.write("" +  total_opens + "\t")
     print("total_opens: " + total_opens)
     
     unique_opens = page_with_opens.prop_unique_opens.text
