@@ -8,12 +8,10 @@ class BaseElement(object):
        self.value = value
        self.by = by
        self.locator = (self.by, self.value)
-
        self.web_element = None
        self.find()
 
     def find(self):
-        # self.driver.find_element(by=self.by, value=self.locator)
         element1 = WebDriverWait(
             self.driver,10).until(
                 EC.visibility_of_element_located(self.locator))

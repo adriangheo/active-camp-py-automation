@@ -66,9 +66,44 @@ class PageWithCampaignSummary(object):
    
 
     @property
-    def link_tracking_urls(self):
-        locator = (By.CSS_SELECTOR, "tbody[id='tlinkshtmllist'] .text_left")
-        return BaseElements(
+    def btn_link_tracking_close_modal(self):
+        locator = (By.XPATH, '//*[contains(text(),"Customize Link Tracking")]/preceding-sibling::a[1]')
+        return BaseElement(
+            driver = self.driver, 
+            by = locator[0],
+            value = locator[1])
+   
+  
+    #switch btn3
+    @property
+    def switch_btn_reply_tracking(self):
+        locator = (By.CSS_SELECTOR, '[data-section="reply_tracking"]')
+        return BaseElement(
+            driver = self.driver, 
+            by = locator[0],
+            value = locator[1])
+
+    #switch btn4
+    @property
+    def switch_btn_analytics_tracking(self):
+        locator = (By.CSS_SELECTOR, '[data-section="analytics"]')
+        return BaseElement(
+            driver = self.driver, 
+            by = locator[0],
+            value = locator[1])
+
+    @property
+    def btn_analytics_tracking_open_modal(self):
+        locator = (By.XPATH, "//div[@class='options-row analytics']/div[contains(@class,'options-link')]//a")
+        return BaseElement(
+            driver = self.driver, 
+            by = locator[0],
+            value = locator[1])
+    
+    @property
+    def analytics_field_from_modal(self):
+        locator = (By.CSS_SELECTOR, 'input[name="analytics_campaign_name"]')
+        return BaseElement(
             driver = self.driver, 
             by = locator[0],
             value = locator[1])

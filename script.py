@@ -111,9 +111,9 @@ def traversePages(automation_id):
 
     # swith-01
     switch_btn1 = page_with_campaign_summary.switch_btn_read_tracking
-    bnt_value = switch_btn1.switch_btn_value
-    myfile.write(bnt_value)
-    print('switch is ' + bnt_value)
+    bnt_value1 = switch_btn1.switch_btn_value
+    myfile.write(bnt_value1)
+    print('switch is ' + bnt_value1)
     
     open_read_tracking_modal = page_with_campaign_summary.btn_read_tracking_open_modal
     open_read_tracking_modal.click()
@@ -128,72 +128,48 @@ def traversePages(automation_id):
 
     # swith-02
     switch_btn2 = page_with_campaign_summary.switch_btn_link_tracking
-    bnt_value = switch_btn2.switch_btn_value
-    myfile.write(bnt_value)
-    print('switch is ' + bnt_value)
-
+    bnt_value2 = switch_btn2.switch_btn_value
+    myfile.write(bnt_value2)
+    print('switch is ' + bnt_value2)
 
     open_link_tracking_modal = page_with_campaign_summary.btn_link_tracking_open_modal
     open_link_tracking_modal.click()
-    
-    print(page_with_campaign_summary.link_tracking_urls.urls_from_customise_link_modal)
 
-    # cstmize_lnk_traking_urls = WebDriverWait(browser, 5).until(
-    #     EC.presence_of_all_elements_located((By.CSS_SELECTOR, "tbody[id='tlinkshtmllist'] .text_left"))
-    # )
-    # print("cstmize_lnk_traking_urls: " + cstmize_lnk_traking_urls)  # error can only concatenate strings to strings, not arrays
-    # texts = ""
-    # for matched_element in cstmize_lnk_traking_urls:
-    #     text = matched_element.text
-    #     texts += " "
-    #     texts += text
-    # print(texts)
+    cstmize_lnk_traking_urls = WebDriverWait(browser, 5).until(
+        EC.presence_of_all_elements_located((By.CSS_SELECTOR, "tbody[id='tlinkshtmllist'] .text_left"))
+    )
+    texts = ""
+    for matched_element in cstmize_lnk_traking_urls:
+        text = matched_element.text
+        texts += " "
+        texts += text
+    print(texts)
+
+    close_link_tracking_modal = page_with_campaign_summary.btn_link_tracking_close_modal
+    close_link_tracking_modal.click()
 
 
-    #     myfile.write("" +  texts + "\t")
+    # swith-03
+    switch_btn3 = page_with_campaign_summary.switch_btn_reply_tracking
+    bnt_value3 = switch_btn3.switch_btn_value
+    myfile.write(bnt_value3)
+    print('switch is ' + bnt_value3)
 
-    #     popup_close_btn = WebDriverWait(browser, 5).until(
-    #         EC.visibility_of_element_located((By.XPATH, '//*[contains(text(),"Customize Link Tracking")]/preceding-sibling::a[1]'))
-    #     )
-    #     popup_close_btn.click()
 
-    #     # swith-03
-    #     link_tracking_switch = WebDriverWait(browser, 5).until(
-    #         EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="reply_tracking"]'))
-    #     )
+    # swith-04
+    switch_btn3 = page_with_campaign_summary.switch_btn_analytics_tracking
+    bnt_value3 = switch_btn3.switch_btn_value
+    myfile.write(bnt_value3)
+    print('switch is ' + bnt_value3)
 
-    #     if 'switch_on' in link_tracking_switch.get_attribute('class').split():
-    #         myfile.write("ON\t")
-    #         print('switch is on')
-    #     else:
-    #         print('switch is off')
-    #         myfile.write("OFF\t")
+    open_analytics_tracking_modal = page_with_campaign_summary.btn_analytics_tracking_open_modal
+    open_analytics_tracking_modal.click()
 
-    #     # swith-04
-    #     google_analytics_switch = WebDriverWait(browser, 5).until(
-    #         EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="analytics"]'))
-    #     )
-    #     if 'switch_on' in google_analytics_switch.get_attribute('class').split():
-    #         myfile.write("ON\t")
-    #         print('switch is on')
-    #     else:
-    #         myfile.write("OFF\t")
-    #         print('switch is off')
 
-    #     open_cstmize_lnk_traking = WebDriverWait(browser, 5).until(
-    #         EC.visibility_of_element_located((By.XPATH, "//div[@class='options-row analytics']/div[contains(@class,'options-link')]//a"))
-    #     )
-    #     open_cstmize_lnk_traking.click()
+    analytics_campaing_name = page_with_campaign_summary.analytics_field_from_modal.field_value
+    myfile.write("" +  analytics_campaing_name + "\t")
+    print("" + analytics_campaing_name)
 
-    #     analytics_campaign_name = WebDriverWait(browser, 5).until(
-    #         EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[name="analytics_campaign_name"]'))
-    #     ).get_attribute("value")
-    #     myfile.write("" +  analytics_campaign_name + "\t")
-    #     print("analytics_campaign_name: " + analytics_campaign_name)
-    # else:
-    #     myfile.write("\t\t\t\t\t\t\t\t")
-    #     # End of Campaign Summary
-    #     #
 
     # myfile.write("\t\t")
     # #

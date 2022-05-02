@@ -3,11 +3,11 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class BaseElements(object):
-    def __init__(self, driver,  value, by):
+    def __init__(self, driver, value, by):
        self.driver = driver
        self.value = value
        self.by = by
-       self.locator =  (self.by, self.value)
+       self.locator = (self.by, self.value)
        self.web_elements = None
        self.find()
 
