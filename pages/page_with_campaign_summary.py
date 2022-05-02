@@ -72,3 +72,5 @@ class PageWithCampaignSummary(object):
                 EC.visibility_of_all_elements_located((By.CSS_SELECTOR, "tbody[id='tlinkshtmllist'] .text_left")))
         print(elements)
 
+WebDriverWait(browser, 8).until(EC.visibility_of_all_elements_located((By.CSS_SELECTOR, "div.sentence-and-translations.md-whiteframe-1dp.flex")))
+

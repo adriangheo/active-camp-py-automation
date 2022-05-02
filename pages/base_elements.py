@@ -15,7 +15,7 @@ class BaseElements(object):
         # self.driver.find_element(by=self.by, value=self.locator)
         element1 = WebDriverWait(
             self.driver,10).until(
-                EC.element_to_be_clickable(self.locator))
+                EC.visibility_of_all_elements_located(self.locator))
 
                 
         # self.web_element.append('aaa')
