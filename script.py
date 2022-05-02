@@ -12,7 +12,9 @@ from google.oauth2 import service_account
 
 from pages.automations_page import AutomationsPage
 from pages.login_page import LoginPage
-from pages.page_with_designer import PaveWithDesigner
+from pages.page_with_designer import PageWithDesigner
+from pages.page_with_campaign_summary import PageWithCampaignSummary
+
 from apis.google_api import GoogleApi
 
 import time
@@ -55,7 +57,7 @@ def traversePages(automation_id):
     # page_with_unsubscribes = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(automation_id) + "/unsubscribes"
     # page_with_bounces = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(automation_id) + "/bounces"
 
-    page_with_designer = PaveWithDesigner(driver=browser, automation_nr=automation_id)
+    page_with_designer = PageWithDesigner(driver=browser, automation_nr=automation_id)
     page_with_designer.go()
 
     myfile.write("automation-id:" + str(automation_id) + "\t")
@@ -66,8 +68,9 @@ def traversePages(automation_id):
         return False
     
     # 
-    # open designer page settings modal
-    page_with_designer.btn_open_settings_modal.click()
+    # Start of settings modal popup for page_with_designer
+    open_modal = page_with_designer.btn_open_settings_modal
+    open_modal.click()
 
     subject_text = page_with_designer.subject_from_modal.field_value
     myfile.write("" +  subject_text + "\t")
@@ -89,20 +92,21 @@ def traversePages(automation_id):
     myfile.write("" +  reply_email + "\t")
     print("reply_email: " + reply_email)   
 
-    page_with_designer.btn_close_settings_modal.click()
+    close_modal = page_with_designer.btn_close_settings_modal
+    close_modal.click()
+    # # print("input() function call. Please hit Enter inside the terminal")
+    # # input()
+    # End of settings modal popup for page_with_designer
+    # 
+
+    next_btn = page_with_designer.btn_to_campaign_summary
+    next_btn.click()
     # # print("input() function call. Please hit Enter inside the terminal")
     # # input()
 
-
-    # next_btn = WebDriverWait(browser, 5).until(
-    #     EC.visibility_of_element_located((By.CSS_SELECTOR, '.ac_button.next.alt1.alt2'))
-    # )
-    # next_btn.click()
-
-    # # print("input() function call. Please hit Enter inside the terminal")
-    # # input()
-
-
+    page_with_campaign_summary = PageWithCampaignSummary(driver=browser)
+    swith_btn_nr1 = page_with_campaign_summary.switch_btn_open_read_tracking
+    print(swith_btn_nr1)
     # if(check_exists_by_css_selector('[data-section="read_tracking"]')):
     #     # swith-01
     #     read_tracking_switch = WebDriverWait(browser, 5).until(

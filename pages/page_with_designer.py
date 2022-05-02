@@ -5,7 +5,7 @@ from .base_elements import BaseElements
 from .base_page import BasePage
 
 
-class PaveWithDesigner(object):
+class PageWithDesigner(object):
     url = None
 
     def __init__(self, driver, automation_nr):
@@ -67,6 +67,15 @@ class PaveWithDesigner(object):
     @property
     def btn_close_settings_modal(self):
         locator = (By.CSS_SELECTOR, 'div[id="template-setting"] a[class="close"]')
+        return BaseElement(
+            driver = self.driver, 
+            by = locator[0],
+            value = locator[1])
+
+
+    @property
+    def btn_to_campaign_summary(self):
+        locator = (By.CSS_SELECTOR, '.ac_button.next.alt1.alt2')
         return BaseElement(
             driver = self.driver, 
             by = locator[0],
