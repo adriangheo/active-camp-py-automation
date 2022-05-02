@@ -63,6 +63,7 @@ def traversePages(automation_id):
     browser.get(page_with_designer)
     time.sleep(2)
     if page_with_designer not in browser.current_url:
+        myfile.write("\n")
         return False
     
     btn_temp_settings = WebDriverWait(browser, 5).until(
@@ -250,10 +251,12 @@ def traversePages(automation_id):
         target_values_list.append(analytics_campaign_name)
         myfile.write("" +  analytics_campaign_name + "\t")
         print("analytics_campaign_name: " + analytics_campaign_name)
-
+    else:
+        myfile.write("\t\t\t\t\t\t\t")
         # End of Campaign Summary
         #
 
+    myfile.write("\t\t")
     #
     # Start of Overview
     browser.get(page_with_overview)
@@ -279,14 +282,14 @@ def traversePages(automation_id):
         EC.visibility_of_element_located((By.CSS_SELECTOR, '#open_total_t'))
     ).text
     target_values_list.append(total_opens)
-    myfile.write("" +  total_opens + "\t")
+    myfile.write("" +  total_opens + "\t\t")
     print("total_opens: " + total_opens)
 
     unique_opens = WebDriverWait(browser, 5).until(
         EC.visibility_of_element_located((By.CSS_SELECTOR, '#open_unique_t'))
     ).text
     target_values_list.append(unique_opens)
-    myfile.write("" +  unique_opens + "\t")
+    myfile.write("" +  unique_opens + "\t\t")
     print("unique_opens: " + unique_opens)
     # End of page_with_opens
     #
@@ -299,14 +302,14 @@ def traversePages(automation_id):
         EC.visibility_of_element_located((By.CSS_SELECTOR, '#link_total_t'))
     ).text
     target_values_list.append(total_link_clicks)
-    myfile.write("" +  total_link_clicks + "\t")
+    myfile.write("" +  total_link_clicks + "\t\t")
     print("total_link_clicks: " + total_link_clicks)
 
     unique_link_clicks = WebDriverWait(browser, 5).until(
         EC.visibility_of_element_located((By.CSS_SELECTOR, '#link_unique_t'))
     ).text
     target_values_list.append(unique_link_clicks)
-    myfile.write("" +  unique_link_clicks + "\t")
+    myfile.write("" +  unique_link_clicks + "\t\t")
     print("unique_link_clicks: " + unique_link_clicks)
     # End of page_with_links
     #
@@ -319,7 +322,7 @@ def traversePages(automation_id):
         EC.visibility_of_element_located((By.CSS_SELECTOR, '#unsubscribe_total_t'))
     ).text
     target_values_list.append(total_unsubscribes)
-    myfile.write("" +  total_unsubscribes + "\t")
+    myfile.write("" +  total_unsubscribes + "\t\t")
     print("total_unsubscribes: " + total_unsubscribes)
     # End of page_with_unsubscribes
     #
@@ -332,7 +335,7 @@ def traversePages(automation_id):
         EC.visibility_of_element_located((By.CSS_SELECTOR, '#bounce_total_t'))
     ).text
     target_values_list.append(total_bounces)
-    myfile.write("" +  total_bounces + "\t")
+    myfile.write("" +  total_bounces + "\t\t")
     print("total_bounces: " + total_bounces)
     # End of page_with_bounces
 
