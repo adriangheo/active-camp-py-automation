@@ -113,7 +113,7 @@ def traversePages(automation_id):
     # swith-01
     switch_btn1 = page_with_campaign_summary.switch_btn_read_tracking
     bnt_value1 = switch_btn1.switch_btn_value
-    myfile.write(bnt_value1)
+    myfile.write(bnt_value1 + "\t")
     print('switch is ' + bnt_value1)
     
     open_read_tracking_modal = page_with_campaign_summary.btn_read_tracking_open_modal
@@ -130,7 +130,7 @@ def traversePages(automation_id):
     # swith-02
     switch_btn2 = page_with_campaign_summary.switch_btn_link_tracking
     bnt_value2 = switch_btn2.switch_btn_value
-    myfile.write(bnt_value2)
+    myfile.write(bnt_value2 + "\t")
     print('switch is ' + bnt_value2)
 
     open_link_tracking_modal = page_with_campaign_summary.btn_link_tracking_open_modal
@@ -155,15 +155,15 @@ def traversePages(automation_id):
     # swith-03
     switch_btn3 = page_with_campaign_summary.switch_btn_reply_tracking
     bnt_value3 = switch_btn3.switch_btn_value
-    myfile.write(bnt_value3)
+    myfile.write(bnt_value3 + "\t")
     print('switch is ' + bnt_value3)
 
 
     # swith-04
-    switch_btn3 = page_with_campaign_summary.switch_btn_analytics_tracking
-    bnt_value3 = switch_btn3.switch_btn_value
-    myfile.write(bnt_value3)
-    print('switch is ' + bnt_value3)
+    switch_btn4 = page_with_campaign_summary.switch_btn_analytics_tracking
+    bnt_value4 = switch_btn3.switch_btn_value
+    myfile.write(bnt_value4 + "\t")
+    print('switch is ' + bnt_value4)
 
     open_analytics_tracking_modal = page_with_campaign_summary.btn_analytics_tracking_open_modal
     open_analytics_tracking_modal.click()
