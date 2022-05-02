@@ -14,6 +14,8 @@ from pages.automations_page import AutomationsPage
 from pages.login_page import LoginPage
 from pages.page_with_designer import PageWithDesigner
 from pages.page_with_campaign_summary import PageWithCampaignSummary
+from pages.page_with_overview import PageWithOverview
+
 
 from apis.google_api import GoogleApi
 
@@ -171,24 +173,19 @@ def traversePages(automation_id):
     print("" + analytics_campaing_name)
 
 
-    # myfile.write("\t\t")
-    # #
     # # Start of Overview
-    # browser.get(page_with_overview)
+    page_with_overview = PageWithOverview(driver=browser, automation_nr=automation_id)
+    page_with_overview.go()
 
-    # total_sent = WebDriverWait(browser, 5).until(
-    #     EC.visibility_of_element_located((By.CSS_SELECTOR, 'span.sentto'))
-    # ).text
-    # myfile.write("" +  total_sent + "\t")
-    # print("total_sent: " + total_sent)
+    total_sent =  page_with_overview.totalsent
+    myfile.write("" +  total_sent + "\t")
+    print("total_sent: " + total_sent)
 
-    # revenue = WebDriverWait(browser, 5).until(
-    #     EC.visibility_of_element_located((By.XPATH, "//span[contains(@class, 'panel-summary-currency')][1]"))
-    # ).text #this is used later
+    revenue =  page_with_overview.revenue #this is used later
     # # End of Overview
-    # #
+    #
 
-    # #
+    #
     # # Start of page_with_opens
     # browser.get(page_with_opens)
     # time.sleep(1) # necesary because total_open_links field initially loads with the value 0
