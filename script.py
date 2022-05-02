@@ -109,55 +109,34 @@ def traversePages(automation_id):
 
     page_with_campaign_summary = PageWithCampaignSummary(driver=browser)
 
-    swith_btn1 = page_with_campaign_summary.switch_btn_read_tracking
-    classes_of_switch_btn1 = swith_btn1.classes_of_elmnt
-    if 'switch_on' in classes_of_switch_btn1:
-        myfile.write("ON\t")
-        print('switch is on')
-    else:
-        myfile.write("OFF\t")
-        print('switch is off')
-
+    # swith-01
+    switch_btn1 = page_with_campaign_summary.switch_btn_read_tracking
+    bnt_value = switch_btn1.switch_btn_value
+    myfile.write(bnt_value)
+    print('switch is ' + bnt_value)
     
     open_read_tracking_modal = page_with_campaign_summary.btn_read_tracking_open_modal
     open_read_tracking_modal.click()
 
-    #     open_read_automations = WebDriverWait(browser, 5).until(
-    #         EC.visibility_of_element_located((By.CSS_SELECTOR, '.open-read-automations'))
-    #     )
-    #     open_read_automations.click()
-
-    #     O_R_Automations_text = WebDriverWait(browser, 5).until(
-    #         EC.visibility_of_element_located((By.CSS_SELECTOR, '.text_left.ac_fs-shmedium'))
-    #     ).text
-    #     myfile.write("" +  O_R_Automations_text + "\t")
-    #     print("" + O_R_Automations_text)
+    o_r_automations_text = page_with_campaign_summary.o_r_field_from_modal.text
+    myfile.write("" +  o_r_automations_text + "\t")
+    print("" + o_r_automations_text)
+    
+    close_read_tracking_modal = page_with_campaign_summary.btn_read_tracking_close_modal
+    close_read_tracking_modal.click() 
 
 
-    #     popup_close_btn = WebDriverWait(browser, 5).until(
-    #         EC.visibility_of_element_located((By.XPATH, '//*[contains(text(),"When this message is opened")]/preceding-sibling::a[1]'))
-    #     )
-    #     popup_close_btn.click()
+    # swith-02
+    switch_btn2 = page_with_campaign_summary.switch_btn_link_tracking
+    bnt_value = switch_btn2.switch_btn_value
+    myfile.write(bnt_value)
+    print('switch is ' + bnt_value)
 
 
-    #     # swith-02
-    #     link_tracking_switch = WebDriverWait(browser, 5).until(
-    #         EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="link_tracking"]'))
-    #     )
-
-
-
-    #     if 'switch_on' in link_tracking_switch.get_attribute('class').split():
-    #         myfile.write("ON\t")
-    #         print('switch is on')
-    #     else:
-    #         myfile.write("OFF\t")
-    #         print('switch is off')
-
-    #     open_cstmize_lnk_traking = WebDriverWait(browser, 5).until(
-    #         EC.visibility_of_element_located((By.XPATH, "//div[@class='options-row link_tracking']/div[position()=3]/a"))
-    #     )
-    #     open_cstmize_lnk_traking.click()
+    open_link_tracking_modal = page_with_campaign_summary.btn_link_tracking_open_modal
+    open_link_tracking_modal.click()
+    
+    page_with_campaign_summary.link_tracking_urls
 
     #     cstmize_lnk_traking_urls = WebDriverWait(browser, 5).until(
     #         EC.presence_of_all_elements_located((By.CSS_SELECTOR, "tbody[id='tlinkshtmllist'] .text_left"))

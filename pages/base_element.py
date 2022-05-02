@@ -48,5 +48,11 @@ class BaseElement(object):
         return field_value
 
     @property
-    def classes_of_elmnt(self):
-        return self.web_element.get_attribute('class').split()
+    def switch_btn_value(self):
+        classes_of_switch_btn1 = self.web_element.get_attribute('class').split()
+        field_value = "n/a"
+        if 'switch_on' in classes_of_switch_btn1:
+            field_value = "ON"
+        else:
+            field_value = "OFF"
+        return field_value
