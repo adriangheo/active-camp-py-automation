@@ -14,7 +14,18 @@ from pages.login_page import LoginPage
 from pages.page_with_designer import PageWithDesigner
 from pages.page_with_campaign_summary import PageWithCampaignSummary
 from pages.page_with_overview import PageWithOverview
+from pages.page_with_opens import PageWithOpens
+from pages.page_with_clicks import PageWithClicks
+from pages.page_with_unsubscribes import PageWithUnsubscribes
+from pages.page_with_bounces import PageWithBounces
 
+# example of page_with_overview = "https://thethirdwave.activehosted.com/report/#/campaign/1154/overview"
+# example of page_with_opens = "https://thethirdwave.activehosted.com/report/#/campaign/1154/opens"
+# example of page_with_clicks = "https://thethirdwave.activehosted.com/report/#/campaign/1154/clicks"
+# example of page_with_preview = "https://thethirdwave.activehosted.com/preview.php?c=1154&preview"
+# example of page_with_designer = "https://thethirdwave.activehosted.com/campaign/1154/designer"
+# example of page_with_unsubscribes = "https://thethirdwave.activehosted.com/report/#/campaign/1154/unsubscribes"
+# example of page_with_bounces = "https://thethirdwave.activehosted.com/report/#/campaign/1154/bounces"
 
 from apis.google_api import GoogleApi
 
@@ -50,14 +61,6 @@ myfile = None
 
 
 def traversePages(automation_id):
-    # page_with_overview = "https://thethirdwave.activehosted.com/report/#/campaign/" +  str(automation_id) + "/overview"
-    # page_with_opens = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(automation_id) + "/opens"
-    # page_with_clicks = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(automation_id) + "/clicks"
-    # page_with_preview = "https://thethirdwave.activehosted.com/preview.php?c=" + str(automation_id) + "&preview"
-    # page_with_designer = "https://thethirdwave.activehosted.com/campaign/" + str(automation_id) + "/designer"
-    # page_with_unsubscribes = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(automation_id) + "/unsubscribes"
-    # page_with_bounces = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(automation_id) + "/bounces"
-
     page_with_designer = PageWithDesigner(driver=browser, automation_nr=automation_id)
     page_with_designer.go()
 
@@ -105,9 +108,6 @@ def traversePages(automation_id):
     # Opening page_with_campaign_summary
     next_btn = page_with_designer.btn_to_campaign_summary
     next_btn.click()
-    # # print("input() function call. Please hit Enter inside the terminal")
-    # # input()
-
     page_with_campaign_summary = PageWithCampaignSummary(driver=browser)
 
     # swith-01
@@ -176,79 +176,72 @@ def traversePages(automation_id):
     page_with_overview = PageWithOverview(driver=browser, automation_nr=automation_id)
     page_with_overview.go()
 
-    total_sent =  page_with_overview.totalsent.text
+    total_sent =  page_with_overview.prop_total_sent.text
     myfile.write("" +  total_sent + "\t")
     print("total_sent: " + total_sent)
 
-    revenue =  page_with_overview.total_revenue.text #this is used later
+    revenue =  page_with_overview.prop_revenue.text #this is used later
     # # End of Overview
     #
 
     #
     # # Start of page_with_opens
-    # browser.get(page_with_opens)
-    # time.sleep(1) # necesary because total_open_links field initially loads with the value 0
-    # total_opens = WebDriverWait(browser, 5).until(
-    #     EC.visibility_of_element_located((By.CSS_SELECTOR, '#open_total_t'))
-    # ).text
-    # myfile.write("" +  total_opens + "\t\t")
-    # print("total_opens: " + total_opens)
-
-    # unique_opens = WebDriverWait(browser, 5).until(
-    #     EC.visibility_of_element_located((By.CSS_SELECTOR, '#open_unique_t'))
-    # ).text
-    # myfile.write("" +  unique_opens + "\t\t")
-    # print("unique_opens: " + unique_opens)
+    page_with_opens = PageWithOpens(driver=browser, automation_nr=automation_id)
+    page_with_opens.go()
+    time.sleep(1) # necesary because total_open_links field initially loads with the value 0
+    total_opens = page_with_opens.prop_total_number.text
+    myfile.write("" +  total_opens + "\t\t")
+    print("total_opens: " + total_opens)
+    
+    unique_opens = page_with_opens.prop_unique_opens.text
+    myfile.write("" +  unique_opens + "\t\t")
+    print("unique_opens: " + unique_opens)
     # # End of page_with_opens
-    # #
+    # 
+    
+    # 
+    # # Start of page_with_clicks
+    page_with_clicks = PageWithClicks(driver=browser, automation_nr=automation_id)
+    page_with_clicks.go()
+    time.sleep(1) # necesary because total_open_links field initially loads with the value 0
+    
+    total_link_clicks = page_with_clicks.prop_total_link_clicks.text
+    myfile.write("" +  total_link_clicks + "\t\t")
+    print("total_link_clicks: " + total_link_clicks)
 
-    # #
-    # # Start of page_with_links
-    # browser.get(page_with_clicks)
-    # time.sleep(1) # necesary because total_open_links field initially loads with the value 0
-    # total_link_clicks = WebDriverWait(browser, 5).until(
-    #     EC.visibility_of_element_located((By.CSS_SELECTOR, '#link_total_t'))
-    # ).text
-    # myfile.write("" +  total_link_clicks + "\t\t")
-    # print("total_link_clicks: " + total_link_clicks)
-
-    # unique_link_clicks = WebDriverWait(browser, 5).until(
-    #     EC.visibility_of_element_located((By.CSS_SELECTOR, '#link_unique_t'))
-    # ).text
-    # myfile.write("" +  unique_link_clicks + "\t\t")
-    # print("unique_link_clicks: " + unique_link_clicks)
+    unique_link_clicks = page_with_clicks.prop_unique_link_clicks.text
+    myfile.write("" +  unique_link_clicks + "\t\t")
+    print("unique_link_clicks: " + unique_link_clicks)
     # # End of page_with_links
     # #
 
     # #
     # # Start of page_with_unsubscribes
-    # browser.get(page_with_unsubscribes)
-    # time.sleep(1) # necesary because total_open_links field initially loads with the value 0
-    # total_unsubscribes = WebDriverWait(browser, 5).until(
-    #     EC.visibility_of_element_located((By.CSS_SELECTOR, '#unsubscribe_total_t'))
-    # ).text
-    # myfile.write("" +  total_unsubscribes + "\t\t")
-    # print("total_unsubscribes: " + total_unsubscribes)
+    page_with_unsubscribes = PageWithUnsubscribes(driver=browser, automation_nr=automation_id)
+    page_with_unsubscribes.go()
+    time.sleep(1) 
+    total_unsubscribes = page_with_unsubscribes.prop_total_unsubscribes.text
+    myfile.write("" +  total_unsubscribes + "\t\t")
+    print("total_unsubscribes: " + total_unsubscribes)
     # # End of page_with_unsubscribes
     # #
 
     # #
     # # Start of page_with_bounces
-    # browser.get(page_with_bounces)
-    # time.sleep(1) # necesary because total_open_links field initially loads with the value 0
-    # total_bounces = WebDriverWait(browser, 5).until(
-    #     EC.visibility_of_element_located((By.CSS_SELECTOR, '#bounce_total_t'))
-    # ).text
-    # myfile.write("" +  total_bounces + "\t\t")
-    # print("total_bounces: " + total_bounces)
+    page_with_bounces = PageWithBounces(driver=browser, automation_nr=automation_id)
+    page_with_bounces.go()
+    time.sleep(1) 
+    total_bounces = page_with_bounces.prop_total_bounces.text
+    myfile.write("" +  total_bounces + "\t\t")
+    print("total_bounces: " + total_bounces)
     # # End of page_with_bounces
 
-    # myfile.write("" +  revenue + "")
-    # myfile.write("\n")
+    myfile.write("" +  revenue + "")
+    myfile.write("\n")
 
 
 # 1154, and 1154 are ok, but it breaks at 1155
-for index in range(1154, 1155, 1):
+for index in range(1154, 1156, 1):
     myfile = open("output.txt", 'a')
     traversePages(index)
     myfile.close()

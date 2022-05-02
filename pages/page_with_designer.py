@@ -8,7 +8,7 @@ class PageWithDesigner(object):
     def __init__(self, driver, automation_nr):
         self.driver = driver
         self.url ="https://thethirdwave.activehosted.com/campaign/" + str(automation_nr) + "/designer"
-        
+  
     def go(self):
         self.driver.get(self.url)
 
