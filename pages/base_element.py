@@ -13,7 +13,7 @@ class BaseElement(object):
 
     def check_element_exists(self):
         try:
-            WebDriverWait(self.driver, 5).until(
+            WebDriverWait(self.driver, 2).until(
                 EC.visibility_of_element_located(
                     (self.locator))
             )

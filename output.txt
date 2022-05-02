@@ -1,2 +1,4 @@
 automation-id:1154	Psychedelic consumerism: our response	n/a	Third Wave	contact@thethirdwave.co	n/a	ONPart 2 - Engagement Tagging	ONOFFONDonations to Amazon Conservation Team	1265	1,260		1,260		60		52		5		8		$97.00
-automation-id:1155	How to find psychedelic medicines, safely	Beyond the obvious	Third Wave	contact@thethirdwave.co	n/a	
+automation-id:1155	How to find psychedelic medicines, safely	Beyond the obvious	Third Wave	contact@thethirdwave.co	n/a	automation-id:1155	How to find psychedelic medicines, safely	Beyond the obvious	Third Wave	contact@thethirdwave.co	n/a		automation-id:1155	How to find psychedelic medicines, safely	Beyond the obvious	Third Wave	contact@thethirdwave.co	n/a			-	561		561		84		63		5		1		$345.00
+automation-id:1156	How to find psychedelic medicines, safely	Beyond the obvious	Third Wave	contact@thethirdwave.co	n/a			6935	3,545		3,545		518		416		21		12		$1,969.00
+automation-id:1157	Give Me Your Machete!	Check out Mark Plotkin’s TED Talk	Third Wave - Virtual Summit	contact@thethirdwave.co	n/a	ONPart 2 - Engagement Tagging	ONOFFONMark Plotkin’s podcast and TED Talk	1187	1,052		1,052		159		134		4		3		$9,694.00

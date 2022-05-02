@@ -46,7 +46,7 @@ login_page.login_btn.click()
 
 def check_exists_by_css_selector(cssselector):
     try:
-        WebDriverWait(browser, 5).until(
+        WebDriverWait(browser, 2).until(
             EC.visibility_of_element_located(
                 (By.CSS_SELECTOR, cssselector))
         )
@@ -136,15 +136,17 @@ def traversePages(automation_id):
     open_link_tracking_modal = page_with_campaign_summary.btn_link_tracking_open_modal
     open_link_tracking_modal.click()
 
-    cstmize_lnk_traking_urls = WebDriverWait(browser, 5).until(
-        EC.presence_of_all_elements_located((By.CSS_SELECTOR, "tbody[id='tlinkshtmllist'] .text_left"))
-    )
-    texts = ""
-    for matched_element in cstmize_lnk_traking_urls:
-        text = matched_element.text
-        texts += " "
-        texts += text
-    print(texts)
+    
+    if(check_exists_by_css_selector("tbody[id='tlinkshtmllist'] .text_left")):
+        cstmize_lnk_traking_urls = WebDriverWait(browser, 5).until(
+            EC.presence_of_all_elements_located((By.CSS_SELECTOR, "tbody[id='tlinkshtmllist'] .text_left"))
+        )
+        texts = ""
+        for matched_element in cstmize_lnk_traking_urls:
+            text = matched_element.text
+            texts += " "
+            texts += text
+        print(texts)
 
     close_link_tracking_modal = page_with_campaign_summary.btn_link_tracking_close_modal
     close_link_tracking_modal.click()
@@ -241,7 +243,7 @@ def traversePages(automation_id):
 
 
 # 1154, and 1154 are ok, but it breaks at 1155
-for index in range(1155, 1156, 1):
+for index in range(1155, 1158, 1):
     myfile = open("output.txt", 'a')
     traversePages(index)
     myfile.close()
