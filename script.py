@@ -109,7 +109,7 @@ def traversePages(automation_id):
 
     page_with_campaign_summary = PageWithCampaignSummary(driver=browser)
 
-    swith_btn1 = page_with_campaign_summary.switch_btn_open_read_tracking
+    swith_btn1 = page_with_campaign_summary.switch_btn_read_tracking
     classes_of_switch_btn1 = swith_btn1.classes_of_elmnt
     if 'switch_on' in classes_of_switch_btn1:
         myfile.write("ON\t")
@@ -118,23 +118,9 @@ def traversePages(automation_id):
         myfile.write("OFF\t")
         print('switch is off')
 
-    # if(check_exists_by_css_selector('[data-section="read_tracking"]')):
-    #     # swith-01
-    #     read_tracking_switch = WebDriverWait(browser, 5).until(
-    #         EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="read_tracking"]'))
-    #     )
-    #     # print("input() function call. Please hit Enter inside the terminal")
-    #     # input()
-
-
-
-    #     if 'switch_on' in read_tracking_switch.get_attribute('class').split():
-    #         myfile.write("ON\t")
-    #         print('switch is on')
-    #     else:
-    #         myfile.write("OFF\t")
-    #         print('switch is off')
-
+    
+    open_read_tracking_modal = page_with_campaign_summary.btn_read_tracking_open_modal
+    open_read_tracking_modal.click()
 
     #     open_read_automations = WebDriverWait(browser, 5).until(
     #         EC.visibility_of_element_located((By.CSS_SELECTOR, '.open-read-automations'))

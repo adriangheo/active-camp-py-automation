@@ -10,9 +10,20 @@ class PageWithCampaignSummary(object):
         self.driver = driver
 
     @property
-    def switch_btn_open_read_tracking(self):
+    def switch_btn_read_tracking(self):
         locator = (By.CSS_SELECTOR, '[data-section="read_tracking"]')
         return BaseElement(
             driver = self.driver, 
             by = locator[0],
             value = locator[1])
+
+    @property
+    def btn_read_tracking_open_modal(self):
+        locator = (By.CSS_SELECTOR, '.open-read-automations')
+        return BaseElement(
+            driver = self.driver, 
+            by = locator[0],
+            value = locator[1])
+    
+
+    
