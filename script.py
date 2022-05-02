@@ -45,6 +45,9 @@ def check_exists_by_css_selector(cssselector):
     return True
 
 
+myfile = open("output.txt", 'a')
+
+
 def traversePages(automation_id):
     page_with_overview = "https://thethirdwave.activehosted.com/report/#/campaign/" +  str(automation_id) + "/overview"
     page_with_opens = "https://thethirdwave.activehosted.com/report/#/campaign/" + str(automation_id) + "/opens"
@@ -56,6 +59,7 @@ def traversePages(automation_id):
 
 
     target_values_list.append("automation-id:"+  str(automation_id))
+    myfile.write("automation-id:"+  str(automation_id) + "\t")
     browser.get(page_with_designer)
     time.sleep(2)
     if page_with_designer not in browser.current_url:
@@ -72,7 +76,7 @@ def traversePages(automation_id):
             (By.CSS_SELECTOR, 'input[name="subject"]'))
     ).get_attribute('value')
     target_values_list.append(subject_text)
-
+    myfile.write("" +  subject_text + "\t")
     print("subject_text: " + subject_text)
 
     preheader_text = WebDriverWait(browser, 5).until(
@@ -82,6 +86,7 @@ def traversePages(automation_id):
     if(preheader_text == ""):
         preheader_text = "n/a"
     target_values_list.append(preheader_text)
+    myfile.write("" +  preheader_text + "\t")
     print("preheader_text: " + preheader_text)
 
     sender_name = WebDriverWait(browser, 5).until(
@@ -89,6 +94,7 @@ def traversePages(automation_id):
             (By.CSS_SELECTOR, 'input[name="fromname_display"]'))
     ).get_attribute('value')
     target_values_list.append(sender_name)
+    myfile.write("" +  sender_name + "\t")
     print("sender_text: " + sender_name)
 
     sender_email = WebDriverWait(browser, 5).until(
@@ -96,6 +102,7 @@ def traversePages(automation_id):
             (By.CSS_SELECTOR, 'input[name="fromemail_display"]'))
     ).get_attribute('value')
     target_values_list.append(sender_email)
+    myfile.write("" +  sender_email + "\t")
     print("sender_email: " + sender_email)
 
     reply_email = WebDriverWait(browser, 5).until(
@@ -105,6 +112,7 @@ def traversePages(automation_id):
     if(reply_email == ""):
         reply_email = "n/a"
     target_values_list.append(reply_email)
+    myfile.write("" +  reply_email + "\t")
     print("reply_email: " + reply_email)
 
     popup_close_btn = WebDriverWait(browser, 5).until(
@@ -136,11 +144,14 @@ def traversePages(automation_id):
 
 
         if 'switch_on' in read_tracking_switch.get_attribute('class').split():
-            print('switch is on')
             target_values_list.append("ON")
+            myfile.write("ON\t")
+            print('switch is on')
         else:
             target_values_list.append("OFF")
+            myfile.write("OFF\t")
             print('switch is off')
+
 
         open_read_automations = WebDriverWait(browser, 5).until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, '.open-read-automations'))
@@ -151,7 +162,8 @@ def traversePages(automation_id):
             EC.visibility_of_element_located((By.CSS_SELECTOR, '.text_left.ac_fs-shmedium'))
         ).text
         target_values_list.append(O_R_Automations_text)
-        print("O_R_Automations_text: " + O_R_Automations_text)
+        myfile.write("" +  O_R_Automations_text + "\t")
+        print("" + O_R_Automations_text)
 
 
         popup_close_btn = WebDriverWait(browser, 5).until(
@@ -168,10 +180,12 @@ def traversePages(automation_id):
 
 
         if 'switch_on' in link_tracking_switch.get_attribute('class').split():
-            print('switch is on')
             target_values_list.append("ON")
+            myfile.write("ON\t")
+            print('switch is on')
         else:
             target_values_list.append("OFF")
+            myfile.write("OFF\t")
             print('switch is off')
 
         open_cstmize_lnk_traking = WebDriverWait(browser, 5).until(
@@ -183,12 +197,15 @@ def traversePages(automation_id):
             EC.presence_of_all_elements_located((By.CSS_SELECTOR, "tbody[id='tlinkshtmllist'] .text_left"))
         )
         # print("cstmize_lnk_traking_urls: " + cstmize_lnk_traking_urls)  # error can only concatenate strings to strings, not arrays
-        texts = []
+        texts = ""
         for matched_element in cstmize_lnk_traking_urls:
             text = matched_element.text
-            texts.append(text)
+            texts += " "
+            texts += text
+
 
         target_values_list.append(texts)
+        myfile.write("" +  texts + "\t")
 
         popup_close_btn = WebDriverWait(browser, 5).until(
             EC.visibility_of_element_located((By.XPATH, '//*[contains(text(),"Customize Link Tracking")]/preceding-sibling::a[1]'))
@@ -201,21 +218,25 @@ def traversePages(automation_id):
         )
 
         if 'switch_on' in link_tracking_switch.get_attribute('class').split():
-            print('switch is on')
             target_values_list.append("ON")
+            myfile.write("ON\t")
+            print('switch is on')
         else:
             target_values_list.append("OFF")
             print('switch is off')
+            myfile.write("OFF\t")
 
         # swith-04
         google_analytics_switch = WebDriverWait(browser, 5).until(
             EC.visibility_of_element_located((By.CSS_SELECTOR, '[data-section="analytics"]'))
         )
         if 'switch_on' in google_analytics_switch.get_attribute('class').split():
-            print('switch is on')
             target_values_list.append("ON")
+            myfile.write("ON\t")
+            print('switch is on')
         else:
             target_values_list.append("OFF")
+            myfile.write("OFF\t")
             print('switch is off')
 
         open_cstmize_lnk_traking = WebDriverWait(browser, 5).until(
@@ -227,6 +248,7 @@ def traversePages(automation_id):
             EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[name="analytics_campaign_name"]'))
         ).get_attribute("value")
         target_values_list.append(analytics_campaign_name)
+        myfile.write("" +  analytics_campaign_name + "\t")
         print("analytics_campaign_name: " + analytics_campaign_name)
 
         # End of Campaign Summary
@@ -240,6 +262,7 @@ def traversePages(automation_id):
         EC.visibility_of_element_located((By.CSS_SELECTOR, 'span.sentto'))
     ).text
     target_values_list.append(total_sent)
+    myfile.write("" +  total_sent + "\t")
     print("total_sent: " + total_sent)
 
     revenue = WebDriverWait(browser, 5).until(
@@ -256,12 +279,14 @@ def traversePages(automation_id):
         EC.visibility_of_element_located((By.CSS_SELECTOR, '#open_total_t'))
     ).text
     target_values_list.append(total_opens)
+    myfile.write("" +  total_opens + "\t")
     print("total_opens: " + total_opens)
 
     unique_opens = WebDriverWait(browser, 5).until(
         EC.visibility_of_element_located((By.CSS_SELECTOR, '#open_unique_t'))
     ).text
     target_values_list.append(unique_opens)
+    myfile.write("" +  unique_opens + "\t")
     print("unique_opens: " + unique_opens)
     # End of page_with_opens
     #
@@ -274,12 +299,14 @@ def traversePages(automation_id):
         EC.visibility_of_element_located((By.CSS_SELECTOR, '#link_total_t'))
     ).text
     target_values_list.append(total_link_clicks)
+    myfile.write("" +  total_link_clicks + "\t")
     print("total_link_clicks: " + total_link_clicks)
 
     unique_link_clicks = WebDriverWait(browser, 5).until(
         EC.visibility_of_element_located((By.CSS_SELECTOR, '#link_unique_t'))
     ).text
     target_values_list.append(unique_link_clicks)
+    myfile.write("" +  unique_link_clicks + "\t")
     print("unique_link_clicks: " + unique_link_clicks)
     # End of page_with_links
     #
@@ -292,6 +319,7 @@ def traversePages(automation_id):
         EC.visibility_of_element_located((By.CSS_SELECTOR, '#unsubscribe_total_t'))
     ).text
     target_values_list.append(total_unsubscribes)
+    myfile.write("" +  total_unsubscribes + "\t")
     print("total_unsubscribes: " + total_unsubscribes)
     # End of page_with_unsubscribes
     #
@@ -304,16 +332,22 @@ def traversePages(automation_id):
         EC.visibility_of_element_located((By.CSS_SELECTOR, '#bounce_total_t'))
     ).text
     target_values_list.append(total_bounces)
+    myfile.write("" +  total_bounces + "\t")
     print("total_bounces: " + total_bounces)
     # End of page_with_bounces
 
     target_values_list.append(revenue)
+    myfile.write("" +  revenue + "")
+    myfile.write("\n")
 
 
 # 1154, and 1154 are ok, but it breaks at 1155
 for index in range(1154, 1161, 1):
     target_values_list.append("-----")
     traversePages(index)
+
+
+myfile.close()
 
 
 # links_file = open('list-of-links.txt', 'r')
