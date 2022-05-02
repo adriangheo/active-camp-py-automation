@@ -65,6 +65,8 @@ def traversePages(automation_id):
         myfile.write("\n")
         return False
     
+    # 
+    # open designer page settings modal
     page_with_designer.btn_open_settings_modal.click()
 
     subject_text = page_with_designer.subject_from_modal.field_value
@@ -75,43 +77,19 @@ def traversePages(automation_id):
     myfile.write("" +  preheader_text + "\t")
     print("preheader_text: " + preheader_text)
 
-    # preheader_text = WebDriverWait(browser, 5).until(
-    #     EC.visibility_of_element_located(
-    #         (By.CSS_SELECTOR, 'input[name="preheader_text"]'))
-    # ).get_attribute('value')
-    # if(preheader_text == ""):
-    #     preheader_text = "n/a"
-    # myfile.write("" +  preheader_text + "\t")
-    # print("preheader_text: " + preheader_text)
+    sender_name = page_with_designer.sender_name_from_modal.field_value
+    myfile.write("" +  sender_name + "\t")
+    print("sender_text: " + sender_name)   
 
-    # sender_name = WebDriverWait(browser, 5).until(
-    #     EC.visibility_of_element_located(
-    #         (By.CSS_SELECTOR, 'input[name="fromname_display"]'))
-    # ).get_attribute('value')
-    # myfile.write("" +  sender_name + "\t")
-    # print("sender_text: " + sender_name)
+    sender_email = page_with_designer.sender_email_from_modal.field_value
+    myfile.write("" +  sender_email + "\t")
+    print("sender_email: " + sender_email)   
 
-    # sender_email = WebDriverWait(browser, 5).until(
-    #     EC.visibility_of_element_located(
-    #         (By.CSS_SELECTOR, 'input[name="fromemail_display"]'))
-    # ).get_attribute('value')
-    # myfile.write("" +  sender_email + "\t")
-    # print("sender_email: " + sender_email)
+    reply_email = page_with_designer.reply_email_from_modal.field_value
+    myfile.write("" +  reply_email + "\t")
+    print("reply_email: " + reply_email)   
 
-    # reply_email = WebDriverWait(browser, 5).until(
-    #     EC.visibility_of_element_located(
-    #         (By.CSS_SELECTOR, 'input[name="reply2"]'))
-    # ).get_attribute('value')
-    # if(reply_email == ""):
-    #     reply_email = "n/a"
-    # myfile.write("" +  reply_email + "\t")
-    # print("reply_email: " + reply_email)
-
-    # popup_close_btn = WebDriverWait(browser, 5).until(
-    #     EC.visibility_of_element_located((By.CSS_SELECTOR, 'div[id="template-setting"] a[class="close"]'))
-    # ) 
-    # popup_close_btn.click()
-
+    page_with_designer.btn_close_settings_modal.click()
     # # print("input() function call. Please hit Enter inside the terminal")
     # # input()
 
@@ -317,7 +295,7 @@ def traversePages(automation_id):
 
 
 # 1154, and 1154 are ok, but it breaks at 1155
-for index in range(1154, 1160, 1):
+for index in range(1154, 1155, 1):
     myfile = open("output.txt", 'a')
     traversePages(index)
     myfile.close()

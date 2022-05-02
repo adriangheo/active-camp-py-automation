@@ -39,3 +39,35 @@ class PaveWithDesigner(object):
             driver = self.driver, 
             by = locator[0],
             value = locator[1])
+
+    @property
+    def sender_name_from_modal(self):
+        locator = (By.CSS_SELECTOR, 'input[name="fromname_display"]')
+        return BaseElement(
+            driver = self.driver, 
+            by = locator[0],
+            value = locator[1])
+
+    @property
+    def sender_email_from_modal(self):
+        locator = (By.CSS_SELECTOR, 'input[name="fromemail_display"]')
+        return BaseElement(
+            driver = self.driver, 
+            by = locator[0],
+            value = locator[1])
+
+    @property
+    def reply_email_from_modal(self):
+        locator = (By.CSS_SELECTOR, 'input[name="reply2"]')
+        return BaseElement(
+            driver = self.driver, 
+            by = locator[0],
+            value = locator[1])
+
+    @property
+    def btn_close_settings_modal(self):
+        locator = (By.CSS_SELECTOR, 'div[id="template-setting"] a[class="close"]')
+        return BaseElement(
+            driver = self.driver, 
+            by = locator[0],
+            value = locator[1])
