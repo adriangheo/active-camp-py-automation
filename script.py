@@ -146,7 +146,7 @@ def traversePages(automation_id):
             text = matched_element.text
             texts += " "
             texts += text
-        print(texts)
+        myfile.write("" +  texts + "\t")
 
     close_link_tracking_modal = page_with_campaign_summary.btn_link_tracking_close_modal
     close_link_tracking_modal.click()
@@ -170,8 +170,8 @@ def traversePages(automation_id):
 
 
     analytics_campaing_name = page_with_campaign_summary.analytics_field_from_modal.field_value
-    myfile.write("" +  analytics_campaing_name + "\t")
-    print("" + analytics_campaing_name + "\t\t\t")
+    myfile.write("" +  analytics_campaing_name + "\t\t\t")
+    print("" + analytics_campaing_name + "\t")
 
 
     # # Start of Overview
@@ -192,7 +192,7 @@ def traversePages(automation_id):
     page_with_opens.go()
     time.sleep(1) # necesary because total_open_links field initially loads with the value 0
     total_opens = page_with_opens.prop_total_number.text
-    myfile.write("" +  total_opens + "\t")
+    myfile.write("" +  total_opens + "\t\t")
     print("total_opens: " + total_opens)
     
     unique_opens = page_with_opens.prop_unique_opens.text
@@ -243,7 +243,7 @@ def traversePages(automation_id):
 
 
 # 1154, and 1154 are ok, but it breaks at 1155
-for index in range(1155, 1162, 1):
+for index in range(1150, 1162, 1):
     myfile = open("output.txt", 'a')
     traversePages(index)
     myfile.close()
