@@ -72,45 +72,15 @@ def traversePages(automation_id):
         return False
     
     # 
-    # Start of settings modal popup for page_with_designer
-    open_modal = page_with_designer.btn_open_settings_modal
-    open_modal.click()
-
-    subject_text = page_with_designer.subject_from_modal.field_value
-    myfile.write("" +  subject_text + "\t")
-    print("subject_text: " + subject_text)
-
-    preheader_text = page_with_designer.preheader_from_modal.field_value
-    myfile.write("" +  preheader_text + "\t")
-    print("preheader_text: " + preheader_text)
-
-    sender_name = page_with_designer.sender_name_from_modal.field_value
-    myfile.write("" +  sender_name + "\t")
-    print("sender_text: " + sender_name)   
-
-    sender_email = page_with_designer.sender_email_from_modal.field_value
-    myfile.write("" +  sender_email + "\t")
-    print("sender_email: " + sender_email)   
-
-    reply_email = page_with_designer.reply_email_from_modal.field_value
-    myfile.write("" +  reply_email + "\t")
-    print("reply_email: " + reply_email)   
-
-    close_modal = page_with_designer.btn_close_settings_modal
-    close_modal.click()
-    # # print("input() function call. Please hit Enter inside the terminal")
-    # # input()
-    # End of settings modal popup for page_with_designer
-    # 
-
-
-    # 
     # Opening page_with_campaign_summary
     next_btn = page_with_designer.btn_to_campaign_summary
     next_btn.click()
     page_with_campaign_summary = PageWithCampaignSummary(driver=browser)
 
+    
     # swith-01
+    campaign_name = 
+
     switch_btn1 = page_with_campaign_summary.switch_btn_read_tracking
     bnt_value1 = switch_btn1.switch_btn_value
     myfile.write(bnt_value1 + "\t")
@@ -243,8 +213,8 @@ def traversePages(automation_id):
 
 
 # 1154, and 1154 are ok, but it breaks at 1155
-for index in range(1, 929, 1):
-    myfile = open("output.txt", 'a')
+for index in range(928, 929, 1):
+    myfile = open("automationname.txt", 'a')
     traversePages(index)
     myfile.close()
 

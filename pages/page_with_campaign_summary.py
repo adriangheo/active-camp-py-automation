@@ -106,3 +106,13 @@ class PageWithCampaignSummary(object):
             driver = self.driver, 
             by = locator[0],
             value = locator[1])
+
+
+        
+    @property
+    def prop_automation_name(self):
+        locator = (By.CSS_SELECTOR, 'input[name="campaign_name"]')
+        return BaseElement(
+            driver = self.driver, 
+            by = locator[0],
+            value = locator[1])
